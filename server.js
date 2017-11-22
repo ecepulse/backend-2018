@@ -1,18 +1,20 @@
 var express = require('express');
 var app = express();
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
-// Express can hadle wilcard bindings for server endpoints
+// Express can handle wildcard bindings for server endpoints
 app.all('/*', function (req, res) {
 	res.send('\
 		<!DOCTYPE html>\
 		<html>\
 			<head>\
 				<title>Pulse 2018 ToDo</title>\
+				<base href="/">\
 			</head>\
 			<body>\
-				<h1>Hello, this is the app</h1>\
+				<div ui-view>\
+				<script src="bundle.js"></script>\
 			</body>\
 		</html>\
 	');
