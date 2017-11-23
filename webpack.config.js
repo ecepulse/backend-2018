@@ -10,6 +10,7 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:8080/',
         'webpack/hot/only-dev-server',
+        'bootstrap-loader',
         './src'
     ],
     output: {
@@ -42,6 +43,14 @@ module.exports = {
                     'autoprefixer-loader?browsers=last 3 versions',
                     'sass-loader?outputStyle=expanded'
                 ]
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                loader: 'url-loader?limit=10000'
+            },
+            {
+                test: /bootstrap-sass\/assets\/javascripts\//,
+                loader: 'imports-loader?jQuery=jquery'
             }
             //TODO: Probably should add modules for production for deployed code
             ]
