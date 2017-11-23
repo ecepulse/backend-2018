@@ -3,6 +3,8 @@ var app = express();
 
 var PORT = process.env.PORT || 3000;
 
+var exports = module.exports = {};
+
 // Express can handle wildcard bindings for server endpoints
 app.all('/*', function (req, res) {
 	res.send('\
@@ -23,3 +25,7 @@ app.all('/*', function (req, res) {
 app.listen(PORT, function() {
 	console.log('Server running on ' + PORT);
 });
+
+exports.closeServer = function () {
+    app.close();
+};
