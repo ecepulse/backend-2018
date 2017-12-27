@@ -7,6 +7,26 @@
         <button class="btn btn-success todos__create-button">
             Create Task
         </button>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Completed?</th>
+                <th>Task</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="todo in todos">
+                <td><input type="checkbox" class="todos__checkbox" /></td>
+                <td><span class="todos__task">{{todo.task}}</span></td>
+                <td>
+                    <button class="btn btn-info">
+                        Edit
+                    </button>
+                    <button class="btn btn-danger">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </table>
     </form>
 
 
