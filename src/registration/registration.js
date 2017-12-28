@@ -4,15 +4,21 @@
 
 export default function ($scope, $state, LoginProvider) {
     $scope.formSubmit = function() {
-        LoginProvider.createStandard($scope.username, $scope.password);
-        if(LoginProvider.fbAuth().currentUser) {
-            $scope.error = '';
-            $scope.username = '';
-            $scope.password = '';
-            $state.transitionTo('application');
-        } else {
-            $scope.error = "Incorrect username/password ! May need to register user.";
-        }
+        //TODO: Add proper error handling
+        LoginProvider.fbAuth.createUserWithEmailAndPassword($scope.username, $scope.password).then(function () {
+            if(LoginProvider.fbAuth().currentUser) {
+                $scope.error = '';
+                $scope.username = '';
+                $scope.password = '';
+                $state.transitionTo('application');
+            }
+        }).catch(function (error) {
+            // Handle Errors here.
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            $scope.error = errorMessage;
+            // ...
+        });
     };
 
     if(LoginProvider.fbAuth().currentUser) {

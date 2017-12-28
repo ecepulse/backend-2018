@@ -4,11 +4,11 @@
 
 export default function ($scope, $state, LoginProvider) {
     if(LoginProvider.fbAuth().currentUser) {
-        $scope.logoutForm = LoginProvider.fbAuth().signOut().then(function() {
-            // Sign-out successful.
-        }).catch(function(error) {
-            // An error happened.
-        });
+        $scope.logoutForm = function() {
+            LoginProvider.fbAuth().signOut().then(function () {
+                $state.transitionTo('login');
+            });
+        };
         $scope.user = LoginProvider.fbAuth().currentUser.email;
     } else {
         $state.transitionTo('login');
