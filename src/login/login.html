@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-md-12">
+        <h3>Login Page</h3>
+
+        <form ng-submit="formSubmit()" class="form">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="username" placeholder="username" required=""/>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" ng-model="password" placeholder="password" required=""/>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Login</button>
+                    <span class="text-danger">{{ error }}</span>
+                </div>
+                <a ui-sref="registration" class="nav-link">New User? Register!</a>
+            </div>
+        </form>
+        <form ng-submit="googleSubmit()" class="form">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Login With Google</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
