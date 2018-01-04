@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { RegistrationComponent } from './registration/registration.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 //Define the routes
 const appRoutes: Routes = [
@@ -19,6 +20,8 @@ const appRoutes: Routes = [
     {path: 'sign-in', component: SignInComponent},
     //Sign-up
     {path: 'sign-up', component: SignUpComponent},
+    //Forgot-password
+    {path: 'forgot-password', component: ForgotPasswordComponent},
     //Home
     {path: 'home', component: HomeComponent, canActivate:[AuthGuardService]}
 ];
@@ -29,7 +32,8 @@ const appRoutes: Routes = [
     SignUpComponent,
     SignInComponent,
     HomeComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

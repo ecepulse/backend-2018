@@ -25,6 +25,19 @@ export class AuthService {
         );
 ***REMOVED***
 
+  forgotPassword(email: string){
+    firebase.auth().sendPasswordResetEmail(email)
+      .then(
+        (response) => {
+          if (this.isAuthenticated()) {
+            this.logout();
+        ***REMOVED***
+          console.log("Successfully reset password");
+      ***REMOVED***,
+        (error) => console.log(error)
+      );
+***REMOVED***
+
   logout() {
     firebase.auth().signOut();
     localStorage.removeItem('isLoggedIn');
