@@ -80,3 +80,5 @@ const basic_reg_field = [
     options: ['NONE','INTERNSHIP','FULLTIME','BOTH']
 ***REMOVED***
 ];
+
+export default basic_reg_field;
