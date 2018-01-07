@@ -12,6 +12,10 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { RegistrationComponent } from './registration/registration.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "angularfire2";
+import {CoreModule} from "./core/core.module";
+
 //Define the routes
 const appRoutes: Routes = [
     //If no path then it would redirected to sign-in
@@ -39,7 +43,9 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase),
+    CoreModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
