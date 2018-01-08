@@ -16,26 +16,16 @@ const basic_reg_field = [
     required: true
 ***REMOVED***,
   {
-    id: 'create_password',
-    type: 'password',
-    required: true
-***REMOVED***,
-  {
-    id: 'confirm_password',
-    type: 'password',
-    required: true
-***REMOVED***,
-  {
     id: 'applicant_type',
     type: 'radio',
-    options: ['UIUC Student', 'UIUC Professor', 'Other']
+    options: ['UIUC Undergraduate Student', 'UIUC Graduate Student', 'UIUC Professor', 'Other']
 ***REMOVED***,
   {
     restrict: 'student',
     id: 'major',
     options: ['Computer Engineer',
-              'Electrical Engineer',
-              'Computer Science']
+      'Electrical Engineer',
+      'Computer Science']
 ***REMOVED***,
   {
     restrict: 'student',
@@ -49,17 +39,17 @@ const basic_reg_field = [
   {
     id: 'shirt_size',
     type: 'radio',
-    options: ['S','M','L','XL']
+    options: ['S', 'M', 'L', 'XL']
 ***REMOVED***,
   {
     id: 'diet',
     type: 'radio',
-    options: ['NONE','VEGETARIAN', 'VEGAN', 'GLUTEN_FREE']
+    options: ['NONE', 'VEGETARIAN', 'VEGAN', 'GLUTEN_FREE']
 ***REMOVED***,
   {
     id: 'gender',
     type: 'radio',
-    options: ['FEMALE', 'MALE', 'NON_BINARY', 'OTHER']
+    options: ['FEMALE', 'MALE', 'TRANSGENDER', 'OTHER', 'DO NOT WISH TO SPECIFY']
 ***REMOVED***,
   {
     id: 'age',
@@ -77,7 +67,18 @@ const basic_reg_field = [
 ***REMOVED***,
   {
     id: 'professional_interest',
-    options: ['NONE','INTERNSHIP','FULLTIME','BOTH']
+    type: 'checkbox',
+    options: ['INTERNSHIP', 'FULLTIME', 'FURTHER_STUDIES', 'ACADEMIC']
+***REMOVED***,
+  {
+    id: 'previous_pulse',
+    type: 'checkbox',
+    options: ['Previously attended', 'Friend', 'Posters', 'Social Media', 'Radio', 'Other']
+***REMOVED***,
+  {
+    id: 'event_interest',
+    type: 'checkbox',
+    options: ['Keynote', 'Tech Talks', 'Workshops', 'Startup Panel', 'Competition', 'Speaker Series', 'Women in Tech Day']
 ***REMOVED***
 ];
 
