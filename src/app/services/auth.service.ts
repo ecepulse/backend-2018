@@ -1,20 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import * as firebase from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/switchMap';
 
-interface User {
-  uid: string;
-  email: string;
-  photoURL?: string;
-  displayName?: string;
-  age?: string;
-}
+import { User } from '../interfaces/user';
 
 @Injectable()
 export class AuthService {
@@ -36,7 +29,7 @@ export class AuthService {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((response) => {
               console.log("Successful Sign up");
-              console.log(response.user);
+              console.log(response);
           ***REMOVED***,
             (error) => console.log(error))
 ***REMOVED***
@@ -93,7 +86,7 @@ export class AuthService {
     const data: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
+      //displayName: user.displayName,
       photoURL: user.photoURL
   ***REMOVED***;
     return userRef.set(data)
