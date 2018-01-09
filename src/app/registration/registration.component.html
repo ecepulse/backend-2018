@@ -1,3 +1,31 @@
-<p>
-  registration works!
-</p>
+<div class="container">
+  <h1>Sign In Form</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form [formGroup]="signinForm" (ngSubmit)="signin()">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input type="email" formControlName="email"  class="form-control" placeholder="Email">
+            </div>
+            <p class="help-block" *ngIf="!signinForm.get('email').valid && signinForm.get('email').touched">Please enter email.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input type="password" formControlName="pass" class="form-control" placeholder="Password">
+            </div>
+            <p class="help-block" *ngIf="!signinForm.get('pass').valid && signinForm.get('pass').touched">Please enter password.</p>
+          </div>
+        </div>
+        <div class="row pull-right">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary"
+                    [disabled]="!signinForm.valid">Signin</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
