@@ -11,7 +11,7 @@
     </div>
 
     <label class="checkbox" *ngSwitchCase="'checkbox'" *ngFor="let opt of question.options">
-      <input type="checkbox" [formControlName]="question.key" [name]="question.name" [value]="opt.key">{{opt.name}}
+      <input type="checkbox" [formControlName]="question.key" [name]="question.name" [value]="opt.key">{{opt.value}}
     </label>
 
   </div>
