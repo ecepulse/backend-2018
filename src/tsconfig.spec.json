@@ -9,7 +9,7 @@
       "jasmine",
       "node"
     ]
-***REMOVED***,
+  },
   "files": [
     "test.ts"
   ],

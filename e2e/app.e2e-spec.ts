@@ -5,10 +5,10 @@ describe('angular5-firebase-auth App', () => {
 
   beforeEach(() => {
     page = new AppPage();
-***REMOVED***);
+  });
 
   it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Welcome to app!');
-***REMOVED***);
+  });
 });
