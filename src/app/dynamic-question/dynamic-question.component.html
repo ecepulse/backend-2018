@@ -6,13 +6,17 @@
     <input class="form-control" *ngSwitchCase="'textbox' || 'autocomplete'" [formControlName]="question.key"
            [id]="question.key" [type]="question.type">
 
-    <div class="radio" *ngSwitchCase="'radio'" *ngFor="let opt of question.options">
+    <div *ngSwitchCase="'radio'">
+    <div class="radio" *ngFor="let opt of question.options">
       <label><input type="radio" [formControlName]="question.key" [name]="question.key" [value]="opt.key">{{opt.value}}</label>
     </div>
+    </div>
 
-    <label class="checkbox" *ngSwitchCase="'checkbox'" *ngFor="let opt of question.options">
-      <input type="checkbox" [formControlName]="question.key" [name]="question.name" [value]="opt.key">{{opt.name}}
+    <div *ngSwitchCase="'checkbox'">
+    <label class="checkbox" *ngFor="let opt of question.options">
+      <input type="checkbox" [formControlName]="question.key" [name]="question.name" [value]="opt.key">{{opt.value}}
     </label>
+    </div>
 
   </div>
 
