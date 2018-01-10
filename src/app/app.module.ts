@@ -16,6 +16,8 @@ import {environment} from "../environments/environment";
 import {AngularFireModule} from "angularfire2";
 import {CoreModule} from "./core/core.module";
 import { DynamicQuestionComponent } from './dynamic-question/dynamic-question.component';
+import {QuestionControlService} from "./services/question-control.service";
+import {QuestionSupplierService} from "./services/question-supplier.service";
 
 //Define the routes
 const appRoutes: Routes = [
@@ -49,7 +51,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     CoreModule
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, QuestionControlService, QuestionSupplierService],
   bootstrap: [AppComponent]
 })
 
