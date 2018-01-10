@@ -44,7 +44,7 @@ const basic_reg_field = [
   {
     id: 'diet',
     type: 'radio',
-    options: ['NONE', 'VEGETARIAN', 'VEGAN', 'GLUTEN_FREE']
+    options: ['NONE', 'VEGETARIAN', 'VEGAN', 'GLUTEN_FREE', 'Other']
   },
   {
     id: 'gender',
