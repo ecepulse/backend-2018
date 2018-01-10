@@ -7,5 +7,5 @@ export class TextboxQuestion extends QuestionBase<string> {
   constructor(options: {} = {}) {
     super(options);
     this.type = options['type'] || '';
-***REMOVED***
+  }
 }

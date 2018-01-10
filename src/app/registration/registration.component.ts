@@ -11,6 +11,6 @@ export class RegistrationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-***REMOVED***
+  }
 
 }

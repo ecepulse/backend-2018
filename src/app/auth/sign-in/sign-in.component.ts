@@ -16,11 +16,11 @@ export class SignInComponent implements OnInit {
     this.signinForm = new FormGroup({
       'email': new FormControl(null, Validators.required),
       'pass': new FormControl(null, Validators.required),
-  ***REMOVED***);
-***REMOVED***
+    });
+  }
 
   signin(){
     this.authService.signIn(this.signinForm.value.email, this.signinForm.value.pass);
-***REMOVED***
+  }
 
 }

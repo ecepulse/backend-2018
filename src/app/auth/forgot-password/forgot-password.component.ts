@@ -16,12 +16,12 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit() {
     this.forgotPasswordForm = new FormGroup({
       'email': new FormControl(null, Validators.required)
-  ***REMOVED***);
-***REMOVED***
+    });
+  }
 
   forgotPassword(){
     this.authService.forgotPassword(this.forgotPasswordForm.value.email);
     this.router.navigate(['/sign-in']);
-***REMOVED***
+  }
 
 }
