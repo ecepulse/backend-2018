@@ -15,6 +15,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "angularfire2";
 import {CoreModule} from "./core/core.module";
+import { DynamicQuestionComponent } from './dynamic-question/dynamic-question.component';
 
 //Define the routes
 const appRoutes: Routes = [
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     SignInComponent,
     HomeComponent,
     RegistrationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    DynamicQuestionComponent
   ],
   imports: [
     BrowserModule,
