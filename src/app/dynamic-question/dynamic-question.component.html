@@ -18,7 +18,7 @@
     </label>
     </div>
 
-  </div>
 
-  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+  </div>
+  <p class="help-block" *ngIf="!form.get(question.key).valid && form.get(question.key).touched">Please enter {{question.label}}.</p>
 </div>
