@@ -15,14 +15,14 @@ module.exports = function (config) {
     ],
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
-  ***REMOVED***,
+    },
     coverageIstanbulReporter: {
       reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
-  ***REMOVED***,
+    },
     angularCli: {
       environment: 'dev'
-  ***REMOVED***,
+    },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
@@ -30,5 +30,5 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['PhantomJS'],
     singleRun: false
-***REMOVED***);
-***REMOVED***
+  });
+};

@@ -13,7 +13,7 @@
     "curly": true,
     "deprecation": {
       "severity": "warn"
-  ***REMOVED***,
+    },
     "eofline": true,
     "forin": true,
     "import-blacklist": [
@@ -42,7 +42,7 @@
           "static-method",
           "instance-method"
         ]
-    ***REMOVED***
+      }
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -105,7 +105,7 @@
         "parameter": "nospace",
         "property-declaration": "nospace",
         "variable-declaration": "nospace"
-    ***REMOVED***
+      }
     ],
     "typeof-compare": true,
     "unified-signatures": true,
@@ -140,5 +140,5 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true
-***REMOVED***
+  }
 }

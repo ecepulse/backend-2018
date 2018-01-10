@@ -11,12 +11,12 @@ export class QuestionControlService {
   constructor() { }
 
   toFormGroup(questions: QuestionBase<any>[] ) {
-    let group: any = {***REMOVED***
+    let group: any = {};
 
     questions.forEach(question => {
       group[question.key] = question.required ? new FormControl(question.value || '', Validators.required)
         : new FormControl(question.value || '');
-  ***REMOVED***);
+    });
     return new FormGroup(group);
-***REMOVED***
+  }
 }

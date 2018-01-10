@@ -9,7 +9,7 @@
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
     "lint": "ng lint",
     "e2e": "ng e2e"
-***REMOVED***,
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.0.0",
@@ -30,7 +30,7 @@
     "popper.js": "^1.12.9",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
-***REMOVED***,
+  },
   "devDependencies": {
     "@angular/cli": "1.6.3",
     "@angular/compiler-cli": "^5.0.0",
@@ -52,5 +52,5 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
-***REMOVED***
+  }
 }

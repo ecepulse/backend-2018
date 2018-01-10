@@ -19,20 +19,20 @@ export class AuthService {
       .switchMap(user => {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
-      ***REMOVED*** else {
+        } else {
           return Observable.of(null)
-      ***REMOVED***
-    ***REMOVED***);
-***REMOVED***
+        }
+      });
+  }
 
   signUp(email: string, password: string){
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((response) => {
               console.log("Successful Sign up");
               console.log(response);
-          ***REMOVED***,
+            },
             (error) => console.log(error))
-***REMOVED***
+  }
 
   signIn(email: string, password: string){
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
@@ -45,10 +45,10 @@ export class AuthService {
                 (resp) => console.log(resp),
                 (err) => console.log(err)
               );
-          ***REMOVED***,
+            },
             (error) => console.log(error)
         );
-***REMOVED***
+  }
 
   forgotPassword(email: string){
     this.afAuth.auth.sendPasswordResetEmail(email)
@@ -56,19 +56,19 @@ export class AuthService {
         (response) => {
           if (this.isAuthenticated()) {
             this.logout();
-        ***REMOVED***
+          }
           console.log("Successfully reset password");
-      ***REMOVED***,
+        },
         (error) => console.log(error)
       );
-***REMOVED***
+  }
 
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
         this.updateUserOAuthData(credential.user)
-    ***REMOVED***)
-***REMOVED***
+      })
+  }
 
   private updateUserLoginData(uid, email) {
     // Sets user data to firestore on login
@@ -76,9 +76,9 @@ export class AuthService {
     const data: User = {
       uid: uid,
       email: email
-  ***REMOVED***;
+    };
     return userRef.set(data)
-***REMOVED***
+  }
 
   private updateUserOAuthData(user) {
     // Sets user data to firestore on login
@@ -88,27 +88,27 @@ export class AuthService {
       email: user.email,
       //displayName: user.displayName,
       photoURL: user.photoURL
-  ***REMOVED***;
+    };
     return userRef.set(data)
-***REMOVED***
+  }
 
   logout() {
     this.afAuth.auth.signOut();
     localStorage.removeItem('isLoggedIn');
-***REMOVED***
+  }
 
   getCurrentUserToken() {
     this.afAuth.auth.currentUser.getIdToken()
         .then(
             (token: string) => {
               localStorage.setItem('isLoggedIn', token);
-          ***REMOVED***
+            }
         );
     localStorage.getItem('isLoggedIn');
-***REMOVED***
+  }
 
   isAuthenticated() {
     return !!localStorage.getItem('isLoggedIn');
-***REMOVED***
+  }
 
 }
