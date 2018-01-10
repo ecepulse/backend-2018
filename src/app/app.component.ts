@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
   constructor(private authService : AuthService) {
 
-***REMOVED***
+  }
 
   ngOnInit() {
     /*firebase.initializeApp({
@@ -19,14 +19,14 @@ export class AppComponent implements OnInit {
       authDomain: "<PROJECT_ID>.firebaseapp.com",
       databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
       storageBucket: "<BUCKET>.appspot.com",
-  ***REMOVED***);*/
-***REMOVED***
+    });*/
+  }
 
   onLogout() {
     this.authService.logout();
-***REMOVED***
+  }
 
   checkUserLoggedIn() {
     return !!localStorage.getItem('isLoggedIn');
-***REMOVED***
+  }
 }

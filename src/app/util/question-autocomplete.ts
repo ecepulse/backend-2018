@@ -7,5 +7,5 @@ export class AutocompleteQuestion extends QuestionBase<string> {
   constructor(options: {} = {}) {
     super(options);
     this.options = options['options'] || [];
-***REMOVED***
+  }
 }

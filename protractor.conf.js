@@ -10,7 +10,7 @@ exports.config = {
   ],
   capabilities: {
     'browserName': 'chrome'
-***REMOVED***,
+  },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
@@ -18,11 +18,11 @@ exports.config = {
     showColors: true,
     defaultTimeoutInterval: 30000,
     print: function() {}
-***REMOVED***,
+  },
   onPrepare() {
     require('ts-node').register({
       project: 'e2e/tsconfig.e2e.json'
-  ***REMOVED***);
+    });
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
-***REMOVED***
-***REMOVED***
+  }
+};

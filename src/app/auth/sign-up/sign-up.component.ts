@@ -17,12 +17,12 @@ export class SignUpComponent implements OnInit {
     this.signupForm = new FormGroup ({
       'email': new FormControl(null, Validators.required),
       'pass': new FormControl(null, Validators.required)
-  ***REMOVED***);
-***REMOVED***
+    });
+  }
 
   signup(){
     this.authService.signUp(this.signupForm.value.email, this.signupForm.value.pass);
     this.router.navigate(['/sign-in']);
-***REMOVED***
+  }
 
 }
