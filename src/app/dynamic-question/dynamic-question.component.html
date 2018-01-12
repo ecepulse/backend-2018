@@ -3,7 +3,10 @@
 
   <div [ngSwitch]="question.controlType">
 
-    <input class="form-control" *ngSwitchCase="'textbox' || 'autocomplete'" [formControlName]="question.key"
+    <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key"
+           [id]="question.key" [type]="question.type">
+
+    <input class="form-control" *ngSwitchCase="'autocomplete'" [formControlName]="question.key"
            [id]="question.key" [type]="question.type">
 
     <div *ngSwitchCase="'radio'">
