@@ -15,9 +15,13 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "angularfire2";
 import {CoreModule} from "./core/core.module";
+
 import { DynamicQuestionComponent } from './dynamic-question/dynamic-question.component';
 import {QuestionControlService} from "./services/question-control.service";
 import {QuestionSupplierService} from "./services/question-supplier.service";
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 //Define the routes
 const appRoutes: Routes = [
@@ -49,7 +53,9 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [AuthService, AuthGuardService, QuestionControlService, QuestionSupplierService],
   bootstrap: [AppComponent]
