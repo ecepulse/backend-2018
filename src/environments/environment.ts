@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: ''
+    apiKey: 'AIzaSyBTgwxCyXkUJlNdjYRcbwzZ0nRhcCAMudo',
+    authDomain: 'ece-pulse.firebaseapp.com',
+    databaseURL: 'https://ece-pulse.firebaseio.com',
+    projectId: 'ece-pulse',
+    storageBucket: 'ece-pulse.appspot.com',
+    messagingSenderId: '589166972053'
   }
 };

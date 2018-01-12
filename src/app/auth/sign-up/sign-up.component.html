@@ -1,31 +1,49 @@
-<div class="container">
-  <h1>Sign Up Form</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <form [formGroup]="signupForm" (ngSubmit)="signup()">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <input type="email" formControlName="email"  class="form-control" placeholder="Email">
+<mat-card class="login-card">
+  <div class="container">
+    <h2>Sign Up Form</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <mat-form-field>
+                  <input matInput placeholder="Email" type="email" formControlName="email">
+                </mat-form-field>
+              </div>
+              <p class="help-block" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter email.</p>
             </div>
-            <p class="help-block" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter email.</p>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <input type="password" formControlName="pass" class="form-control" placeholder="Password">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <mat-form-field>
+                  <input matInput placeholder="Password" type="password" formControlName="pass">
+                </mat-form-field>
+              </div>
+              <p class="help-block" *ngIf="!signupForm.get('pass').valid && signupForm.get('pass').touched">Please enter password.</p>
             </div>
-            <p class="help-block" *ngIf="!signupForm.get('pass').valid && signupForm.get('pass').touched">Please enter password.</p>
           </div>
-        </div>
-        <div class="row pull-right">
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-primary"
-                    [disabled]="!signupForm.valid">Sign up</button>
+          <div class="row pull-right">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary"
+                      [disabled]="!signupForm.valid">Sign up</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+  <div class="row" style="text-align: center; margin-top: 10px">
+    <div class="col-md-12">
+      <div class="row pull-right">
+      <span routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+          <button mat-button routerLink="/sign-in">Sign-in</button> |
+      </span>
+        <span routerLinkActive="active" >
+          <button mat-button routerLink="/forgot-password">Forgot password</button>
+      </span>
+      </div>
+    </div>
+  </div>
+</mat-card>
