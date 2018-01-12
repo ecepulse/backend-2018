@@ -10,28 +10,7 @@
     <button mat-button>Contact</button>
   </mat-toolbar-row>
 </mat-toolbar>
-  <mat-card class="login-card">
-      <router-outlet></router-outlet>
-    <div class="row" style="text-align: center; margin-top: 10px">
-      <div class="col-md-12">
-        <div class="row pull-right" *ngIf="!checkUserLoggedIn()">
-      <span routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
-          <button mat-button routerLink="/sign-in">Sign-in</button> |
-      </span>
-          <span routerLinkActive="active">
-            <button mat-button routerLink="/sign-up">Sign-up</button> |
-      </span>
-          <span routerLinkActive="active" >
-          <button mat-button routerLink="/forgot-password">Forgot password</button>
-      </span>
-        </div>
-        <div class="row pull-right" *ngIf="checkUserLoggedIn()">
-          <a href="#" routerLink="/home">Home</a> |
-          <a href="#" (click)="onLogout()">Logout</a>
-        </div>
-      </div>
-    </div>
-  </mat-card>
+  <router-outlet></router-outlet>
 </div>
 
 <div class="container">

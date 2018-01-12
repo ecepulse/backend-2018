@@ -1,37 +1,53 @@
-<div class="container">
-  <h2>Sign In Form</h2>
-  <div class="row">
-    <div class="col-md-6">
-      <form [formGroup]="signinForm" (ngSubmit)="signin()">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <!--<input type="email" formControlName="email"  class="form-control" placeholder="Email">-->
-              <mat-form-field>
-                <input matInput placeholder="Email" type="email" formControlName="email">
-              </mat-form-field>
+<mat-card class="login-card">
+  <div class="container">
+    <h2>Sign In Form</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="signinForm" (ngSubmit)="signin()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <!--<input type="email" formControlName="email"  class="form-control" placeholder="Email">-->
+                <mat-form-field>
+                  <input matInput placeholder="Email" type="email" formControlName="email">
+                </mat-form-field>
+              </div>
+              <p class="help-block" *ngIf="!signinForm.get('email').valid && signinForm.get('email').touched">Please enter email.</p>
             </div>
-            <p class="help-block" *ngIf="!signinForm.get('email').valid && signinForm.get('email').touched">Please enter email.</p>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <mat-form-field>
-                <input matInput placeholder="Password" type="password" formControlName="pass">
-              </mat-form-field>
-              <!--<input type="password" formControlName="pass" class="form-control" placeholder="Password">-->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <mat-form-field>
+                  <input matInput placeholder="Password" type="password" formControlName="pass">
+                </mat-form-field>
+                <!--<input type="password" formControlName="pass" class="form-control" placeholder="Password">-->
+              </div>
+              <p class="help-block" *ngIf="!signinForm.get('pass').valid && signinForm.get('pass').touched">Please enter password.</p>
             </div>
-            <p class="help-block" *ngIf="!signinForm.get('pass').valid && signinForm.get('pass').touched">Please enter password.</p>
           </div>
-        </div>
-        <div class="row" style="text-align: right">
-          <div class="col-md-12">
-            <button mat-raised-button color="accent" type="submit"
-                    [disabled]="!signinForm.valid">Login</button>
+          <div class="row" style="text-align: right">
+            <div class="col-md-12">
+              <button mat-raised-button color="accent" type="submit"
+                      [disabled]="!signinForm.valid">Login</button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+  <div class="row" style="text-align: center; margin-top: 10px">
+    <div class="col-md-12">
+      <div class="row pull-right">
+      <span routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+            <button mat-button routerLink="/sign-up">Sign-up</button> |
+      </span>
+        <span routerLinkActive="active" >
+          <button mat-button routerLink="/forgot-password">Forgot password</button>
+      </span>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+
