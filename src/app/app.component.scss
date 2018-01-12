@@ -1,0 +1,143 @@
+@import 'variables.sass';
+
+nav .navbar-nav>li{
+    a{
+        color: $off-white;
+    }
+}
+
+nav .navbar-toggle,
+nav .navbar-toggle:focus,
+nav .navbar-toggle:hover{
+    background: inherit;
+}
+
+.navbar-collapse.collapse.show,
+.navbar-collapse.collapsing{
+    background: $light-gray;
+    li{
+        a{
+            color: $dark-gray!important;
+            font-weight: bold;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            padding: 2em;
+            padding-left: 10em;
+            padding-right: 10em;
+            margin: -3em;
+        }
+        border-color: $dark-gray;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+    }
+}
+
+button.navbar-toggle{
+    margin-top: 33px;
+}
+
+.navbar-nav{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.navbar{
+    background-color: rgb(51, 51, 51)!important;
+    height: 100px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    li{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .navbar-brand{
+        img{
+            height: 50px;
+        }
+    }
+}
+
+a{
+    color: inherit;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+.row.vertical-align{
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: 768px){
+        display: flex;
+        align-items: center;
+    }
+    /* Extra small devices (767px and down) */
+    @media (max-width: 767px){
+        display: block; /* turn off the flexible box layout */
+    }
+}
+
+.vertical-align-always{
+    display: flex;
+    align-items: center;
+}
+
+
+.full-height{
+    height: 100%;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.spread{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.vertical-center-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    /* Small devices (tablets, 768px and up) */
+    @media (min-width: 768px){
+        height: 100px;
+    }
+    /* Extra small devices (767px and down) */
+    @media (max-width: 767px){
+        height: 75px;
+    }
+}
+
+.nav-padding{
+    padding-top: 100px;
+}
+
+.footer{
+    padding-top: 20px;
+    color: $light-gray;
+    text-align: center;
+    background: $dark-gray;
+    min-height: 90px;
+    img{
+        margin-top: -15px;
+        height: 50px;
+    }
+    .row, .container{
+        height: 100%;
+    }
+    a{
+        color: inherit;
+    }
+    .col-sm-4{
+        padding: 10px;
+    }
+}
+

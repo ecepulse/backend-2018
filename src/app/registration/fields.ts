@@ -34,6 +34,7 @@ const basic_reg_field = [
   {
     restrict: 'prof',
     id: 'department',
+    type: 'radio',
     options: ['Electrical and Computer Engineering', 'Computer Science']
   },
   {

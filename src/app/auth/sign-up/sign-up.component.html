@@ -1,30 +1,19 @@
 <div class="container">
-  <h1>Sign Up Form</h1>
+  <h1 class="gray title">Sign Up</h1>
   <div class="row">
     <div class="col-md-6">
       <form [formGroup]="signupForm" (ngSubmit)="signup()">
-        <div class="row">
-          <div class="col-md-12">
             <div class="form-group">
               <input type="email" formControlName="email"  class="form-control" placeholder="Email">
             </div>
             <p class="help-block" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">Please enter email.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
             <div class="form-group">
               <input type="password" formControlName="pass" class="form-control" placeholder="Password">
             </div>
             <p class="help-block" *ngIf="!signupForm.get('pass').valid && signupForm.get('pass').touched">Please enter password.</p>
-          </div>
-        </div>
-        <div class="row pull-right">
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-primary"
-                    [disabled]="!signupForm.valid">Sign up</button>
-          </div>
-        </div>
+
+            <button type="submit" class="btn orange-bg"
+                    [disabled]="!signupForm.valid">sign up</button>
       </form>
     </div>
   </div>

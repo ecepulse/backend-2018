@@ -1,10 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/scss/bootstrap";
+@import 'app/variables.sass';
 
 input.ng-invalid.ng-touched{
   border: 1px solid red;
 }
 p.help-block{
   color: red;
+}
+
+.min-height {
+    min-height: 100vh;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Source Sans Pro";
+    background: $light-gray;
+    color: $dark-gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto Slab";
+}
+h1{
+    font-size: 2em;
+}
+h2{
+    font-size: 1.8em;
+}
+h3{
+    font-size: 1.6em;
+}
+h4{
+    font-size: 1.4em;
+}
+h5{
+    font-size: 1.2em;
+}
+
+.logo-font{
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.row{
+    margin: 0;
+}
+
+.orange{
+    color: $orange;
+}
+.orange-bg{
+    background: $orange;
+    color: $off-white;
+}
+
+.gray{
+    color: $dark-gray;
+}
+.gray-bg{
+    background: $dark-gray;
+    color: $off-white;
+}
+
+.title {
+    font-size: 3em;
+    font-family: 'Roboto Slab';
+    padding-top: 30px;
+    padding-bottom: 15px;
 }
