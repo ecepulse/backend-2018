@@ -30,6 +30,7 @@
                       [disabled]="!signupForm.valid">Sign up</button>
             </div>
           </div>
+          <p class="help-block" *ngIf="isInvalid()">{{getError()}}</p>
         </form>
       </div>
     </div>

@@ -24,4 +24,12 @@ export class ForgotPasswordComponent implements OnInit {
     this.router.navigate(['/sign-in']);
   }
 
+  isInvalid() {
+    return !this.authService.getForgotEmailStatus();
+  }
+
+  getError() {
+    return this.authService.getForgotEmailError();
+  }
+
 }
