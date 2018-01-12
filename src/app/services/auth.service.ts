@@ -13,6 +13,12 @@ import { User } from '../util/user';
 export class AuthService {
 
   user: Observable<User>;
+  loginStatus: boolean = true;
+  loginError: string = "";
+  signUpStatus: boolean = true;
+  signUpError: string = "";
+  forgotEmailStatus: boolean = true;
+  forgotEmailError: string = "";
 
   constructor(private router : Router, private afAuth : AngularFireAuth, private afs : AngularFirestore) {
     this.user = this.afAuth.authState
@@ -25,13 +31,44 @@ export class AuthService {
       });
   }
 
+  getLoginStatus() {
+    return this.loginStatus;
+  }
+
+  getLoginError() {
+    return this.loginError;
+  }
+
+  getSignUpStatus() {
+    return this.signUpStatus;
+  }
+
+  getSignUpError() {
+    return this.signUpError;
+  }
+
+  getForgotEmailStatus() {
+    return this.forgotEmailStatus;
+  }
+
+  getForgotEmailError() {
+    return this.forgotEmailError;
+  }
+
   signUp(email: string, password: string){
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((response) => {
               console.log("Successful Sign up");
               console.log(response);
+              this.signUpStatus = true;
+              this.forgotEmailStatus = true;
+              this.loginStatus = true;
             },
-            (error) => console.log(error))
+            (error) => {
+              console.log(error);
+              this.signUpStatus = false;
+              this.signUpError = error.message;
+            })
   }
 
   signIn(email: string, password: string){
@@ -45,8 +82,15 @@ export class AuthService {
                 (resp) => console.log(resp),
                 (err) => console.log(err)
               );
+              this.signUpStatus = true;
+              this.forgotEmailStatus = true;
+              this.loginStatus = true;
             },
-            (error) => console.log(error)
+            (error) => {
+              console.log(error);
+              this.loginStatus = false;
+              this.loginError = error.message;
+            }
         );
   }
 
@@ -58,8 +102,13 @@ export class AuthService {
             this.logout();
           }
           console.log("Successfully reset password");
+          this.forgotEmailStatus = true;
         },
-        (error) => console.log(error)
+        (error) => {
+          console.log(error);
+          this.forgotEmailStatus = false;
+          this.forgotEmailError = error.message;
+        }
       );
   }
 
