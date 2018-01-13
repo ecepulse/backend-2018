@@ -7,7 +7,8 @@ import { MatButtonModule,
          MatFormFieldModule,
          MatInputModule,
          MatAutocompleteModule,
-         MatRadioModule }
+         MatRadioModule,
+         MatListModule }
   from '@angular/material';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatRadioModule
+    MatRadioModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
@@ -27,7 +29,8 @@ import { MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatRadioModule
+    MatRadioModule,
+    MatListModule
   ],
   declarations: []
 })

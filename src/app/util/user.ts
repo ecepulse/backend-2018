@@ -1,18 +1,19 @@
 export interface User {
-  uid: string;
-  email: string;
+  uid?: string;
+  email?: string;
   photoURL?: string;
   firstName?: string;
   lastName?: string;
   applicantType?: string;
   major?: string;
-  graduationYear?: string;
+  graduationYear?: number;
   department?: string;
   shirtSize?: string;
-  diet?: string;
+  diet?: string[];
   gender?: string;
   age?: number;
   github?: string;
+  linkedIn?: string;
   resumeURL?: string;
   resumeString?: string;
   professionalInterest?: string;

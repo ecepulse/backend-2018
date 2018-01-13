@@ -153,7 +153,15 @@ export class AuthService {
               localStorage.setItem('isLoggedIn', token);
             }
         );
-    localStorage.getItem('isLoggedIn');
+    return localStorage.getItem('isLoggedIn');
+  }
+
+  updateUserRegistration(regData) {
+    this.afAuth.authState.subscribe(authData => {
+      let uid = authData.uid;
+      const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${uid}`);
+      return userRef.set(regData);
+    });
   }
 
   isAuthenticated() {

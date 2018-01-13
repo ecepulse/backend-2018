@@ -9,8 +9,9 @@
       <app-dynamic-question [question]="question" [form]="form"></app-dynamic-question>
     </div>
 
-    <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
+    <div class="form-row" style="text-align: right">
+        <button mat-raised-button color="accent" type="submit"
+                [disabled]="!form.valid">Save</button>
     </div>
   </form>
 
