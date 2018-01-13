@@ -3,20 +3,39 @@
 
   <div [ngSwitch]="question.controlType">
 
-    <input class="form-control" *ngSwitchCase="'textbox' || 'autocomplete'" [formControlName]="question.key"
-           [id]="question.key" [type]="question.type">
+    <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key"
+        [id]="question.key" [type]="question.type">
 
-    <div *ngSwitchCase="'radio'">
+    <input class="form-control" *ngSwitchCase="'autocomplete'" [formControlName]="question.key"
+        [id]="question.key" [type]="question.type">
+
+    <!-- <div *ngSwitchCase="'radio'">
     <div class="radio" *ngFor="let opt of question.options">
       <label><input type="radio" [formControlName]="question.key" [name]="question.key" [value]="opt.key">{{opt.value}}</label>
     </div>
+    </div> -->
+    <div *ngSwitchCase="'radio'">
+        <div class="form-check" *ngFor="let opt of question.options">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" [formControlName]="question.key" [name]="question.key" [value]="opt.key">
+            {{opt.value}}
+          </label>
+        </div>
+    </div>
+    <div *ngSwitchCase="'checkbox'">
+        <div class="form-check" *ngFor="let opt of question.options">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [formControlName]="question.key" [name]="question.key" [value]="opt.key">
+            {{opt.value}}
+          </label>
+        </div>
     </div>
 
-    <div *ngSwitchCase="'checkbox'">
+    <!-- <div *ngSwitchCase="'checkbox'">
     <label class="checkbox" *ngFor="let opt of question.options">
       <input type="checkbox" [formControlName]="question.key" [name]="question.name" [value]="opt.key">{{opt.value}}
     </label>
-    </div>
+    </div> -->
 
 
   </div>

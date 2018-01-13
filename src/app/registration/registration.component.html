@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Registration</h1>
+  <h1 class="gray title">Registration</h1>
   <div class="row">
     <div class="col-md-6">
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
@@ -9,7 +9,8 @@
     </div>
 
     <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
+        <button type="submit" class="btn orange-bg"
+                [disabled]="!form.valid">save</button>
     </div>
   </form>
 

@@ -73,3 +73,16 @@ h5{
     padding-top: 30px;
     padding-bottom: 15px;
 }
+
+app-dynamic-question {
+    label {
+        font-weight: bolder;
+    }
+    label.form-check-label {
+        font-weight: normal;
+        padding-top: 0;
+    }
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
