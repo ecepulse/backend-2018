@@ -1,5 +1,4 @@
 <div [formGroup]="form">
-  <label [attr.for]="question.key">{{question.label}}</label>
 
   <div [ngSwitch]="question.controlType">
 
@@ -20,13 +19,19 @@
     </mat-form-field>
 
     <div *ngSwitchCase="'radio'">
-    <div class="radio" *ngFor="let opt of question.options">
-      <label><input type="radio" [formControlName]="question.key" [name]="question.key" [value]="opt.key">{{opt.value}}</label>
-    </div>
+      <label [attr.for]="question.key">{{question.label}}</label>
+      <div>
+      <mat-radio-group  class="radio-group" [formControlName]="question.key" [required]="question.required">
+        <mat-radio-button class="radio-button" *ngFor="let opt of question.options" [value]="opt.key">
+          {{opt.value}}
+        </mat-radio-button>
+      </mat-radio-group>
+      </div>
     </div>
 
     <div *ngSwitchCase="'checkbox'">
-    <label class="checkbox" *ngFor="let opt of question.options">
+      <label [attr.for]="question.key">{{question.label}}</label>
+      <label class="checkbox" *ngFor="let opt of question.options">
       <input type="checkbox" [formControlName]="question.key" [name]="question.name" [value]="opt.key">{{opt.value}}
     </label>
     </div>
