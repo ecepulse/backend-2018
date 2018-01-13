@@ -5,7 +5,6 @@ import { QuestionBase }              from '../util/question-base';
 import { QuestionControlService }    from '../services/question-control.service';
 
 import { AuthService } from '../services/auth.service';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 import { User } from '../util/user';
 
@@ -20,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
-  constructor(private qcs: QuestionControlService, private authService: AuthService, private afs: AngularFirestore) { }
+  constructor(private qcs: QuestionControlService, private authService: AuthService) { }
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
@@ -44,8 +43,6 @@ export class RegistrationComponent implements OnInit {
       professionalInterest: this.form.value['prof_int'],
       previousPulse: this.form.value['prev_pulse'],
       eventInterest: this.form.value['event_int']
-      //email: user.email,
-      //displayName: user.displayName,
     };
     if (this.form.value['age'] != "")
       data.age = parseInt(this.form.value['age'].toString()) || 0;
