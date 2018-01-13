@@ -3,11 +3,21 @@
 
   <div [ngSwitch]="question.controlType">
 
-    <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key"
-           [id]="question.key" [type]="question.type">
+    <mat-form-field *ngSwitchCase="'textbox'">
+      <input matInput [placeholder]="question.label" [formControlName]="question.key"
+             [id]="question.key" [type]="question.type" [required]="question.required">
+    </mat-form-field>
 
-    <input class="form-control" *ngSwitchCase="'autocomplete'" [formControlName]="question.key"
-           [id]="question.key" [type]="question.type">
+    <mat-form-field *ngSwitchCase="'autocomplete'">
+    <input matInput [placeholder]="question.label"
+           [matAutocomplete]="auto" [formControlName]="question.key"
+           [id]="question.key" [type]="question.type" [required]="question.required">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of auto_options | async" [value]="option">
+        <span>{{ option }}</span>
+      </mat-option>
+    </mat-autocomplete>
+    </mat-form-field>
 
     <div *ngSwitchCase="'radio'">
     <div class="radio" *ngFor="let opt of question.options">
