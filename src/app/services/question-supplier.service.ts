@@ -79,14 +79,14 @@ export class QuestionSupplierService {
         ],
         order: 8
       }),
-      new RadioQuestion({
+      new CheckboxQuestion({
         key: 'diet',
-        label: 'Diet',
+        label: 'Diet restrictions',
         options: [
           {key: 'none', value: 'None'},
           {key: 'veg', value: 'Vegetarian'},
           {key: 'vegan', value: 'Vegan'},
-          {key: 'glu_free', value: 'Glutan Free'},
+          {key: 'glu_free', value: 'Gluten Free'},
           {key: 'other', value: 'Other'}
         ],
         order: 9
@@ -125,14 +125,13 @@ export class QuestionSupplierService {
         options: [
           {key: 'intern', value: 'Internship'},
           {key: 'fulltime', value: 'Fulltime'},
-          {key: 'fs', value: 'Further studies'},
-          {key: 'acad', value: 'Academic'}
+          {key: 'fs', value: 'Further studies (Academic)'}
         ],
         order: 14
       }),
       new CheckboxQuestion({
         key: 'prev_pulse',
-        label: 'Have you previously attended Pulse?',
+        label: 'How did you hear of Pulse?',
         options: [
           {key: 'pa', value: 'Previously attended'},
           {key: 'friend', value: 'Friend'},
@@ -146,11 +145,12 @@ export class QuestionSupplierService {
       new CheckboxQuestion({
         key: 'event_int',
         label: 'Which events are you interested in?',
+        required: true,
         options: [
           {key: 'keynote', value: 'Keynote'},
           {key: 'tt', value: 'Tech Talks'},
           {key: 'workshops', value: 'Workshops'},
-          {key: 'sp', value: 'Startup Panel'},
+          //{key: 'sp', value: 'Startup Panel'},
           {key: 'comp', value: 'Competition'},
           {key: 'ss', value: 'Speaker Series'},
           {key: 'witd', value: 'Women in Tech Day'}
