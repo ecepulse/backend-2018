@@ -4,8 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import * as firebase from 'firebase';
 
-
-import { Upload } from '../util/upload'
+import { Upload } from '../util/upload';
 
 @Injectable()
 export class UploadService {
@@ -16,7 +15,7 @@ export class UploadService {
     let storageRef = firebase.storage().ref();
     let uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot) =>  {
+      (snapshot: any) =>  {
         // upload in progress
         upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       },
