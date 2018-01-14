@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import * as firebase from 'firebase';
 
-var firebase = require('firebase');
+
+import { Upload } from '../util/upload'
 
 
 @Injectable()

@@ -15,7 +15,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "angularfire2";
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import {CoreModule} from "./core/core.module";
 
 import { DynamicQuestionComponent } from './dynamic-question/dynamic-question.component';
