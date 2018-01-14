@@ -5,9 +5,11 @@
   Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
 </div>
 <label>
-   <input type="file" (change)="detectFiles($event)">
+    <input class="hide" id="input-file-id" type="file" (change)="detectFiles($event)" type="file" />
+    <label for="input-file-id"><a mat-raised-button color="accent">Choose Files</a></label>
 </label>
-<button
+<label *ngIf="selectedFiles">{{selectedFiles[0].name}}</label>
+<button mat-raised-button color="accent"
         [disabled]="!selectedFiles"
         (click)="uploadSingle()">
   Upload Single

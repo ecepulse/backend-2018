@@ -7,7 +7,6 @@ import * as firebase from 'firebase';
 
 import { Upload } from '../util/upload'
 
-
 @Injectable()
 export class UploadService {
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) { }
