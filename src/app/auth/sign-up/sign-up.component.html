@@ -24,10 +24,10 @@
               <p class="help-block" *ngIf="!signupForm.get('pass').valid && signupForm.get('pass').touched">Please enter password.</p>
             </div>
           </div>
-          <div class="row pull-right">
+          <div class="row" style="text-align: right">
             <div class="col-md-12">
-              <button type="submit" class="btn btn-primary"
-                      [disabled]="!signupForm.valid">Sign up</button>
+              <button mat-raised-button color="accent" type="submit"
+                      [disabled]="!signinForm.valid">Sign up</button>
             </div>
           </div>
           <p class="help-block" *ngIf="isInvalid()">{{getError()}}</p>
