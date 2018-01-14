@@ -8,28 +8,31 @@ import { Upload } from '../util/upload';
 
 @Injectable()
 export class UploadService {
+  authState: any = null;
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) { }
   private basePath:string = '/uploads';
   uploads: FirebaseListObservable<Upload[]>;
   pushUpload(upload: Upload) {
-    let storageRef = firebase.storage().ref();
-    let uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshot: any) =>  {
-        // upload in progress
-        upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-      },
-      (error) => {
-        // upload failed
-        console.log(error)
-      },
-      () => {
-        // upload success
-        upload.url = uploadTask.snapshot.downloadURL
-        upload.name = upload.file.name
-        this.saveFileData(upload)
-      }
-    );
+    this.afAuth.authState.subscribe((authData) => {
+        let storageRef = firebase.storage().ref();
+        let uploadTask = storageRef.child(`${this.basePath}/resume_${authData.uid}`).put(upload.file);
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          (snapshot: any) =>  {
+            // upload in progress
+            upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          },
+          (error) => {
+            // upload failed
+            console.log(error)
+          },
+          () => {
+            // upload success
+            upload.url = uploadTask.snapshot.downloadURL
+            upload.name = upload.file.name
+            this.saveFileData(upload)
+          }
+        );
+    });
   }
   // Writes the file details to the realtime db
   private saveFileData(upload: Upload) {
