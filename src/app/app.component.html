@@ -1,14 +1,14 @@
 <div>
 <mat-toolbar color="primary" class="mat-elevation-z6">
   <mat-toolbar-row>
-    <span><img class="nav-image" alt="Brand" src="/assets/img/logo-trimmed.png" layout-fill></span>
+    <a routerLink="/home"><span><img class="nav-image" alt="Brand" src="/assets/img/logo-trimmed.png" layout-fill></span></a>
     <!--<span>Pulse 2018 Event Portal</span>-->
 
     <span class="example-spacer"></span>
-
-    <button mat-button>About</button>
-    <button mat-button>Services</button>
-    <button mat-button>Contact</button>
+    
+    <button mat-button routerLink="/sign-in">Sign in</button>
+    <button mat-button routerLink="/sign-up">Sign up</button>
+    <button mat-button routerLink="/forgot-password">Forgot password</button>
   </mat-toolbar-row>
 </mat-toolbar>
   <router-outlet></router-outlet>
