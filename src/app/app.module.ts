@@ -9,14 +9,17 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { UploadService } from './services/upload.service';
 import { RegistrationComponent } from './registration/registration.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "angularfire2";
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {CoreModule} from "./core/core.module";
 
 import { DynamicQuestionComponent } from './dynamic-question/dynamic-question.component';
+import { UploadFormComponent } from './upload-form/upload-form.component';
 import {QuestionControlService} from "./services/question-control.service";
 import {QuestionSupplierService} from "./services/question-supplier.service";
 
@@ -45,7 +48,8 @@ const appRoutes: Routes = [
     HomeComponent,
     RegistrationComponent,
     ForgotPasswordComponent,
-    DynamicQuestionComponent
+    DynamicQuestionComponent,
+    UploadFormComponent
   ],
   imports: [
     BrowserModule,
@@ -53,11 +57,12 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     CoreModule,
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [AuthService, AuthGuardService, QuestionControlService, QuestionSupplierService],
+  providers: [AuthService, AuthGuardService, QuestionControlService, QuestionSupplierService, UploadService],
   bootstrap: [AppComponent]
 })
 
