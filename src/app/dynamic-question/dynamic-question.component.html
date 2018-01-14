@@ -19,9 +19,9 @@
     </mat-form-field>
 
     <div *ngSwitchCase="'radio'">
-      <label [attr.for]="question.key">{{question.label}}</label>
-      <label [attr.for]="question.key" *ngIf="question.required">*</label>
-      <div>
+      <label class="input-label" [attr.for]="question.key">{{question.label}}</label>
+      <label class="input-label" [attr.for]="question.key" *ngIf="question.required">*</label>
+      <div class="radio-spacer">
       <mat-radio-group  class="radio-group" [formControlName]="question.key" [required]="question.required">
         <mat-radio-button class="radio-button" *ngFor="let opt of question.options" [value]="opt.key">
           {{opt.value}}
@@ -31,8 +31,8 @@
     </div>
 
     <div *ngSwitchCase="'checkbox'">
-      <label [attr.for]="question.key">{{question.label}}</label>
-      <label [attr.for]="question.key" *ngIf="question.required">*</label>
+      <label class="input-label" [attr.for]="question.key">{{question.label}}</label>
+      <label class="input-label" [attr.for]="question.key" *ngIf="question.required">*</label>
       <div>
       <mat-selection-list [formControlName]="question.key" [required]="question.required">
         <mat-list-option *ngFor="let opt of question.options" [value]="opt.key">
