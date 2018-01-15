@@ -25,6 +25,8 @@ import {QuestionSupplierService} from "./services/question-supplier.service";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { HsRegistrationComponent } from './hs-registration/hs-registration.component';
+import { HsHomeComponent } from './hs-home/hs-home.component';
 
 //Define the routes
 const appRoutes: Routes = [
@@ -37,7 +39,9 @@ const appRoutes: Routes = [
     //Forgot-password
     {path: 'forgot-password', component: ForgotPasswordComponent},
     //Home
-    {path: 'home', component: HomeComponent, canActivate:[AuthGuardService]}
+    {path: 'home', component: HomeComponent, canActivate:[AuthGuardService]},
+    //HS Home
+    {path: 'hs-home', component: HsHomeComponent, canActivate:[AuthGuardService]}
 ];
 
 @NgModule({
@@ -49,7 +53,9 @@ const appRoutes: Routes = [
     RegistrationComponent,
     ForgotPasswordComponent,
     DynamicQuestionComponent,
-    UploadFormComponent
+    UploadFormComponent,
+    HsRegistrationComponent,
+    HsHomeComponent
   ],
   imports: [
     BrowserModule,
