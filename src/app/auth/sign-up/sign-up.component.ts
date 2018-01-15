@@ -21,8 +21,12 @@ export class SignUpComponent implements OnInit {
   }
 
   signup(){
-    this.authService.signUp(this.signupForm.value.email, this.signupForm.value.pass);
-    this.router.navigate(['/sign-in']);
+    this.authService.signUp(this.signupForm.value.email, this.signupForm.value.pass)
+        .then((response) =>
+        {
+          if (!this.isInvalid())
+            this.router.navigate(['/sign-in']);
+        });
   }
 
   isInvalid() {

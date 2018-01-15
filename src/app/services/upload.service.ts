@@ -11,6 +11,7 @@ export class UploadService {
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) { }
   private basePath:string = '/users';
   uploads: FirebaseListObservable<Upload[]>;
+  private isUploaded: boolean = false;
   pushUpload(upload: Upload) {
     this.afAuth.authState.subscribe((authData) => {
         let storageRef = firebase.storage().ref();
@@ -18,21 +19,28 @@ export class UploadService {
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
           (snapshot: any) =>  {
             // upload in progress
-            upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           },
           (error) => {
             // upload failed
-            console.log(error)
+            console.log(error);
+            this.isUploaded = false;
           },
           () => {
             // upload success
-            upload.url = uploadTask.snapshot.downloadURL
-            upload.name = `${authData.uid}/resume`
-            this.saveFileData(upload)
+            upload.url = uploadTask.snapshot.downloadURL;
+            upload.name = `${authData.uid}/resume`;
+            this.saveFileData(upload);
+            this.isUploaded = true;
           }
         );
     });
   }
+
+  hasSuccessfullyUploaded() {
+    return this.isUploaded;
+  }
+
   // Writes the file details to the realtime db
   private saveFileData(upload: Upload) {
     this.db.list(`${this.basePath}/`).push(upload);
