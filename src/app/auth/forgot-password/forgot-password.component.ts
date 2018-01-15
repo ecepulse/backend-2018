@@ -20,8 +20,12 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgotPassword(){
-    this.authService.forgotPassword(this.forgotPasswordForm.value.email);
-    this.router.navigate(['/sign-in']);
+    this.authService.forgotPassword(this.forgotPasswordForm.value.email)
+        .then((response) =>
+        {
+          if (!this.isInvalid())
+            this.router.navigate(['/sign-in']);
+        });
   }
 
   isInvalid() {
