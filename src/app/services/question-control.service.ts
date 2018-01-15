@@ -19,4 +19,14 @@ export class QuestionControlService {
     });
     return new FormGroup(group);
   }
+
+  getFormData(questions: QuestionBase<any>[]) {
+    let group: any = {};
+
+    questions.forEach(question => {
+      group[question.key] = question.required ? new FormControl(question.value || '', Validators.required)
+          : new FormControl(question.value || '');
+    });
+    return group;
+  }
 }

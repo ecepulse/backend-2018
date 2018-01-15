@@ -56,32 +56,36 @@ export class AuthService {
   }
 
   signUp(email: string, password: string){
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((response) => {
               console.log("Successful Sign up");
               console.log(response);
               this.signUpStatus = true;
               this.forgotEmailStatus = true;
               this.loginStatus = true;
+                this.updateUserLoginData(response.uid, response.email).then(
+                    (resp) => console.log(resp),
+                    (err) => console.log(err)
+                );
             },
             (error) => {
               console.log(error);
               this.signUpStatus = false;
               this.signUpError = error.message;
-            })
+            });
   }
 
   signIn(email: string, password: string){
-    this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then(
             (response) => {
               console.log(response);
               this.router.navigate(['home']);
               this.getCurrentUserToken();
-              this.updateUserLoginData(response.uid, response.email).then(
+              /*this.updateUserLoginData(response.uid, response.email).then(
                 (resp) => console.log(resp),
                 (err) => console.log(err)
-              );
+              );*/
               this.signUpStatus = true;
               this.forgotEmailStatus = true;
               this.loginStatus = true;
@@ -95,7 +99,7 @@ export class AuthService {
   }
 
   forgotPassword(email: string){
-    this.afAuth.auth.sendPasswordResetEmail(email)
+    return this.afAuth.auth.sendPasswordResetEmail(email)
       .then(
         (response) => {
           if (this.isAuthenticated()) {
