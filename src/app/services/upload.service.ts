@@ -8,14 +8,13 @@ import { Upload } from '../util/upload';
 
 @Injectable()
 export class UploadService {
-  authState: any = null;
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) { }
-  private basePath:string = '/uploads';
+  private basePath:string = '/users';
   uploads: FirebaseListObservable<Upload[]>;
   pushUpload(upload: Upload) {
     this.afAuth.authState.subscribe((authData) => {
         let storageRef = firebase.storage().ref();
-        let uploadTask = storageRef.child(`${this.basePath}/resume_${authData.uid}`).put(upload.file);
+        let uploadTask = storageRef.child(`${this.basePath}/${authData.uid}/resume`).put(upload.file);
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
           (snapshot: any) =>  {
             // upload in progress
@@ -28,7 +27,7 @@ export class UploadService {
           () => {
             // upload success
             upload.url = uploadTask.snapshot.downloadURL
-            upload.name = upload.file.name
+            upload.name = `${authData.uid}/resume`
             this.saveFileData(upload)
           }
         );

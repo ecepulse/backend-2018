@@ -2,15 +2,10 @@
   <div class="progress">
     <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
   </div>
-  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+  Progress: {{currentUpload?.progress}}% Complete
 </div>
 <label>
     <input class="hide" id="input-file-id" type="file" (change)="detectFiles($event)" type="file" />
-    <label for="input-file-id"><a mat-raised-button color="accent">Choose Files</a></label>
+    <label for="input-file-id"><a mat-raised-button color="accent">Choose Resume (1MB limit)</a></label>
 </label>
 <label *ngIf="selectedFiles">{{selectedFiles[0].name}}</label>
-<button mat-raised-button color="accent"
-        [disabled]="!selectedFiles"
-        (click)="uploadSingle()">
-  Upload Single
-</button>
