@@ -1,10 +1,11 @@
 import { Component, Input, OnInit }  from '@angular/core';
-import { FormGroup }                 from '@angular/forms';
+import {FormGroup, Validators, FormControl}                 from '@angular/forms';
 
 import { QuestionBase }              from '../util/question-base';
 import { QuestionControlService }    from '../services/question-control.service';
 
 import { AuthService } from '../services/auth.service';
+import { UploadService } from '../services/upload.service';
 
 import { User } from '../util/user';
 
@@ -19,10 +20,14 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
-  constructor(private qcs: QuestionControlService, private authService: AuthService) { }
+  constructor(private qcs: QuestionControlService, private authService: AuthService, private uploadService: UploadService) { }
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
+  }
+
+  fileUploaded() {
+    return this.uploadService.hasSuccessfullyUploaded();
   }
 
   onSubmit() {
