@@ -99,7 +99,7 @@ export class AuthService {
   }
 
   forgotPassword(email: string){
-    this.afAuth.auth.sendPasswordResetEmail(email)
+    return this.afAuth.auth.sendPasswordResetEmail(email)
       .then(
         (response) => {
           if (this.isAuthenticated()) {
