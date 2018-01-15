@@ -31,7 +31,7 @@ import { HsHomeComponent } from './hs-home/hs-home.component';
 //Define the routes
 const appRoutes: Routes = [
     //If no path then it would redirected to sign-in
-    {path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+    {path: '', redirectTo: '/sign-up', pathMatch: 'full' },
     //Sign-in
     {path: 'sign-in', component: SignInComponent},
     //Sign-up

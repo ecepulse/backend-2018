@@ -30,7 +30,8 @@ export class UploadService {
             // upload success
             upload.url = uploadTask.snapshot.downloadURL;
             upload.name = `${authData.uid}/resume`;
-            this.saveFileData(upload);
+            // Don't need to keep file records if only allowed uploads are to users/{uid}/resume
+            // this.saveFileData(upload);
             this.isUploaded = true;
           }
         );
