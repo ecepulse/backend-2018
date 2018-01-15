@@ -2,13 +2,14 @@
 <div class="container">
   <h1>Registration</h1>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
 
     <div *ngFor="let question of questions" class="form-row">
       <app-dynamic-question [question]="question" [form]="form"></app-dynamic-question>
     </div>
-    
+
+      <p class="input-label">Resume Upload *</p>
     <upload-form></upload-form>
 
     <div class="form-row submit-div">

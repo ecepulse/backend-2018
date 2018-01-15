@@ -2,6 +2,10 @@
   display: inline-flex;
   flex-direction: column;
 }
+mat-selection-list, mat-radio-group {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 .radio-button {
   margin: 5px;
@@ -18,4 +22,9 @@
 .radio-spacer {
   margin-top: 5px;
   margin-bottom: 7px;
+}
+
+mat-list-option, mat-form-field {
+    width: 400px;
+    max-width: 100%
 }

@@ -33,6 +33,7 @@ export class HsRegistrationComponent implements OnInit {
       lastName: this.form.value['last_name'].toString(),
       gradeLevel: this.form.value['grade_level'].toString(),
       age: parseInt(this.form.value['age'].toString()) || 0,
+      highSchoolName: this.form.value['high_school_name'].toString(),
       workshopSession1Preference: this.form.value['workshop_session_1_preference'].toString(),
       workshopSession2Preference: this.form.value['workshop_session_2_preference'].toString(),
       workshopSession3Preference: this.form.value['workshop_session_3_preference'].toString()

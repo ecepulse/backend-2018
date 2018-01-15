@@ -19,6 +19,7 @@ export class AuthService {
   signUpError: string = "";
   forgotEmailStatus: boolean = true;
   forgotEmailError: string = "";
+  redirectUrl: string = "";
 
   constructor(private router : Router, private afAuth : AngularFireAuth, private afs : AngularFirestore) {
     this.user = this.afAuth.authState
@@ -67,6 +68,7 @@ export class AuthService {
                     (resp) => console.log(resp),
                     (err) => console.log(err)
                 );
+                this.router.navigate(['sign-in']);
             },
             (error) => {
               console.log(error);
@@ -146,8 +148,11 @@ export class AuthService {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
-    localStorage.removeItem('isLoggedIn');
+    this.afAuth.auth.signOut().then(() => {
+        localStorage.removeItem('isLoggedIn');
+        console.log('nick loves honey')
+        this.router.navigate(['']);
+    });
   }
 
   getCurrentUserToken() {
