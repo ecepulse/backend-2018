@@ -6,6 +6,6 @@
 </div>
 <label>
     <input class="hide" id="input-file-id" type="file" (change)="detectFiles($event)" />
-    <label for="input-file-id"><a mat-raised-button color="accent">Choose Resume (1MB limit)*</a></label>
+    <label for="input-file-id"><a mat-raised-button color="accent">Choose Resume (1MB limit, .pdf only)</a></label>
 </label>
 <label *ngIf="selectedFiles">{{selectedFiles[0].name}}</label>

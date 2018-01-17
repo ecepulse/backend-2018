@@ -39,7 +39,6 @@ export class RegistrationComponent implements OnInit {
       applicantType: this.form.value['applicant_type'].toString(),
       major: this.form.value['major'].toString(),
       graduationYear: parseInt(this.form.value['grad_year'].toString()) || 0,
-      department: this.form.value['dept'].toString(),
       shirtSize: this.form.value['shirt_size'].toString(),
       diet: this.form.value['diet'],
       gender: this.form.value['gender'].toString(),
