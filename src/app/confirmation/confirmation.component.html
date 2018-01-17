@@ -1,0 +1,14 @@
+<mat-card class="registration-card">
+<div class="container">
+  <h1>You're Registered!</h1>
+  <p>Thank you! You've been registered for Pulse 2018. Below are your current registration details.</p>
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngIf="payload" class="form-row">
+        <strong>Saved the following values</strong><br>
+        <p *ngFor="let value of payload"> {{value}} </p>
+      </div>
+    </div>
+  </div>
+</div>
+</mat-card>

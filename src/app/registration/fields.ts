@@ -32,11 +32,6 @@ const basic_reg_field = [
     id: 'graduation_year'
   },
   {
-    restrict: 'prof',
-    id: 'department',
-    options: ['Electrical and Computer Engineering', 'Computer Science']
-  },
-  {
     id: 'shirt_size',
     type: 'radio',
     options: ['S', 'M', 'L', 'XL']

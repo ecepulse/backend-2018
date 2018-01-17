@@ -82,7 +82,12 @@ export class AuthService {
         .then(
             (response) => {
               console.log(response);
-              this.router.navigate(['home']);
+              if(this.redirectUrl){
+                  this.router.navigate([this.redirectUrl]);
+              }
+              else {
+                  this.router.navigate(['home']);
+              }
               this.getCurrentUserToken();
               /*this.updateUserLoginData(response.uid, response.email).then(
                 (resp) => console.log(resp),
@@ -150,7 +155,6 @@ export class AuthService {
   logout() {
     this.afAuth.auth.signOut().then(() => {
         localStorage.removeItem('isLoggedIn');
-        console.log('nick loves honey')
         this.router.navigate(['']);
     });
   }
@@ -169,8 +173,27 @@ export class AuthService {
     this.afAuth.authState.subscribe(authData => {
       let uid = authData.uid;
       const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${uid}`);
-      return userRef.set(regData);
+      return userRef.set(regData).then( () => {
+          this.router.navigate(['confirmation']);
+      });
     });
+  }
+
+  getUserRegistration(cb: (data:User) => void){
+    this.afAuth.authState.subscribe(authData => {
+      let uid = authData.uid;
+      const userRef: AngularFirestoreDocument<User> = this.afs.doc<User>(`users/${uid}`);
+      return userRef.ref.get().then(function(doc) {
+      if (doc.exists) {
+          cb(doc.data());
+      } else {
+          console.log("No such document!");
+      }
+      }).catch(function(error) {
+          console.log("Error getting document:", error);
+      });
+    });
+
   }
 
   isAuthenticated() {

@@ -7,7 +7,6 @@ export interface User {
   applicantType?: string;
   major?: string;
   graduationYear?: number;
-  department?: string;
   shirtSize?: string;
   diet?: string[];
   gender?: string;

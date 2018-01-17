@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HsRegistrationComponent } from './hs-registration/hs-registration.component';
 import { HsHomeComponent } from './hs-home/hs-home.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 //Define the routes
 const appRoutes: Routes = [
@@ -41,7 +42,9 @@ const appRoutes: Routes = [
     //Home
     {path: 'home', component: HomeComponent, canActivate:[AuthGuardService]},
     //HS Home
-    {path: 'hs-home', component: HsHomeComponent, canActivate:[AuthGuardService]}
+    {path: 'hs-home', component: HsHomeComponent, canActivate:[AuthGuardService]},
+    //Confirmation page
+    {path: 'confirmation', component: ConfirmationComponent, canActivate:[AuthGuardService]}
 ];
 
 @NgModule({
@@ -55,7 +58,8 @@ const appRoutes: Routes = [
     DynamicQuestionComponent,
     UploadFormComponent,
     HsRegistrationComponent,
-    HsHomeComponent
+    HsHomeComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,

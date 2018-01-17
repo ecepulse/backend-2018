@@ -266,13 +266,6 @@ export class QuestionSupplierService {
         type: 'number',
         order: 6
       }),
-      new AutocompleteQuestion({
-        key: 'dept',
-        label: 'Department',
-        required: true,
-        options: ['Electrical and Computer Engineering', 'Computer Science'],
-        order: 7
-      }),
       new RadioQuestion({
         key: 'shirt_size',
         label: 'Shirt Sizes',
@@ -283,7 +276,7 @@ export class QuestionSupplierService {
           {key: 'xl', value: 'XL'}
         ],
         required: true,
-        order: 8
+        order: 7
       }),
       new CheckboxQuestion({
         key: 'diet',
@@ -296,7 +289,7 @@ export class QuestionSupplierService {
           {key: 'other', value: 'Other'}
         ],
         required: true,
-        order: 9
+        order: 8
       }),
       new RadioQuestion({
         key: 'gender',
@@ -309,24 +302,24 @@ export class QuestionSupplierService {
           {key: 'dnwts', value: 'Do not wish to specify'}
         ],
         required: true,
-        order: 10
+        order: 9
       }),
       new TextboxQuestion({
         key: 'age',
         label: 'Age',
         type: 'number',
         required: true,
-        order: 11
+        order: 10
       }),
       new TextboxQuestion({
         key: 'github',
         label: 'Github',
-        order: 12
+        order: 11
       }),
       new TextboxQuestion({
         key: 'linkedin',
         label: 'LinkedIn',
-        order: 13
+        order: 12
       }),
       new CheckboxQuestion({
         key: 'prof_int',
@@ -336,7 +329,7 @@ export class QuestionSupplierService {
           {key: 'fulltime', value: 'Fulltime'},
           {key: 'fs', value: 'Further studies (Academic)'}
         ],
-        order: 14
+        order: 13
       }),
       new CheckboxQuestion({
         key: 'prev_pulse',
@@ -350,7 +343,7 @@ export class QuestionSupplierService {
           {key: 'radio', value: 'Radio'},
           {key: 'other', value: 'Other'}
         ],
-        order: 15
+        order: 14
       }),
       new CheckboxQuestion({
         key: 'event_int',
@@ -365,13 +358,13 @@ export class QuestionSupplierService {
           {key: 'ss', value: 'Speaker Series'},
           {key: 'witd', value: 'Women in Tech Day'}
         ],
-        order: 16
+        order: 15
       })
     ];
 
     return questions.sort((a, b) => a.order - b.order);
   }
-  
+
   getHsQuestions() {
     let questions: QuestionBase<any>[] = [
       new TextboxQuestion({
