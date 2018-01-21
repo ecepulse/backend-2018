@@ -173,7 +173,7 @@ export class AuthService {
     this.afAuth.authState.subscribe(authData => {
       let uid = authData.uid;
       const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${uid}`);
-      return userRef.set(regData).then( () => {
+      return userRef.update(regData).then( () => {
           this.router.navigate(['confirmation']);
       });
     });

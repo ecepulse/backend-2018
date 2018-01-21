@@ -5,10 +5,12 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import * as firebase from 'firebase';
 
 import { Upload } from '../util/upload';
+import {AngularFirestoreDocument, AngularFirestore} from "angularfire2/firestore";
+import {User} from "../util/user";
 
 @Injectable()
 export class UploadService {
-  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) { }
+  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase, private afs : AngularFirestore) { }
   private basePath:string = '/users';
   uploads: FirebaseListObservable<Upload[]>;
   private isUploaded: boolean = false;
@@ -33,6 +35,12 @@ export class UploadService {
             // Don't need to keep file records if only allowed uploads are to users/{uid}/resume
             // this.saveFileData(upload);
             this.isUploaded = true;
+            const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${authData.uid}`);
+            const resumeData: User = {
+              resumeString: upload.name,
+              resumeURL:  upload.url
+            };
+            return userRef.update(resumeData);
           }
         );
     });

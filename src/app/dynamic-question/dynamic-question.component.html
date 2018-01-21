@@ -4,13 +4,13 @@
 
     <mat-form-field *ngSwitchCase="'textbox'">
       <input matInput [placeholder]="question.label" [formControlName]="question.key"
-             [id]="question.key" [type]="question.type" [required]="question.required">
+             [id]="question.key" [type]="question.type" [required]="question.required" [value]="question.value">
     </mat-form-field>
 
     <mat-form-field *ngSwitchCase="'autocomplete'">
     <input matInput [placeholder]="question.label"
            [matAutocomplete]="auto" [formControlName]="question.key"
-           [id]="question.key" [type]="question.type" [required]="question.required">
+           [id]="question.key" [type]="question.type" [required]="question.required" [value]="question.value">
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let option of auto_options | async" [value]="option">
         <span>{{ option }}</span>
@@ -22,7 +22,7 @@
       <label class="input-label" [attr.for]="question.key">{{question.label}}</label>
       <label class="input-label" [attr.for]="question.key" *ngIf="question.required">*</label>
       <div class="radio-spacer">
-      <mat-radio-group  class="radio-group" [formControlName]="question.key" [required]="question.required">
+      <mat-radio-group  class="radio-group" [formControlName]="question.key" [required]="question.required" [value]="question.value">
         <mat-radio-button class="radio-button" *ngFor="let opt of question.options" [value]="opt.key">
           {{opt.value}}
         </mat-radio-button>

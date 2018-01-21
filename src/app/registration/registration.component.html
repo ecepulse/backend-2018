@@ -13,15 +13,15 @@
       <p class="input-label">Resume Upload</p>
     <upload-form></upload-form>
 
+    <div *ngIf="payLoad" class="form-row" style="text-align: center">
+      <p class="help-block"><strong>Your registration has successfully been saved.</strong></p><br>
+    </div>
+
     <div class="form-row submit-div">
         <button mat-raised-button color="accent" type="submit"
                 [disabled]="!form.valid">Save</button>
     </div>
   </form>
-
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br>{{payLoad}}
-  </div>
     </div>
   </div>
 </div>
