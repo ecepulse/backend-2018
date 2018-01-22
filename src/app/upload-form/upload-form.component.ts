@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { UploadService } from '../services/upload.service';
 import { Upload } from '../util/upload';
 
-import each = require('lodash/each');
-import range = require('lodash/range');
+import * as _ from "lodash";
 
 @Component({
   selector: 'upload-form',
@@ -26,8 +25,8 @@ export class UploadFormComponent implements OnInit {
   }
   uploadMulti() {
     let files = this.selectedFiles;
-    let filesIndex = range(files.length);
-    each(filesIndex, (idx) => {
+    let filesIndex = _.range(files.length);
+    _.each(filesIndex, (idx) => {
       this.currentUpload = new Upload(files[idx]);
       this.upSvc.pushUpload(this.currentUpload);
     });

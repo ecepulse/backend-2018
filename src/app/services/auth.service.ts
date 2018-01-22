@@ -68,7 +68,7 @@ export class AuthService {
                     (resp) => console.log(resp),
                     (err) => console.log(err)
                 );
-                this.router.navigate(['sign-in']);
+              this.signIn(email, password);
             },
             (error) => {
               console.log(error);

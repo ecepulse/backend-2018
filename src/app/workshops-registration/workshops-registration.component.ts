@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth.service';
 
 import { WorkshopPreferences } from '../util/workshop_preferences';
 import * as firebase from 'firebase';
-import uniq = require('lodash/uniq');
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-workshops-registration',
@@ -35,7 +35,7 @@ export class WorkshopsRegistrationComponent implements OnInit {
         this.form.value['third_workshop_preference'].toString(),
         this.form.value['fourth_workshop_preference'].toString()
       ];
-      if(uniq(preferences).length == preferences.length)
+      if(_.uniq(preferences).length == preferences.length)
           return true;
       else
           return false;
@@ -49,7 +49,7 @@ export class WorkshopsRegistrationComponent implements OnInit {
         secondWorkshopPreference: this.form.value['second_workshop_preference'].toString(),
         thirdWorkshopPreference: this.form.value['third_workshop_preference'].toString(),
         fourthWorkshopPreference: this.form.value['fourth_workshop_preference'].toString(),
-        timestamp: firebase.database.ServerValue.TIMESTAMP
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
     };
     return this.authService.updateWorkshopPreferences(data);
   }
