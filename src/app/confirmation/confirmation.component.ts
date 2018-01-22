@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
-import * as _ from 'lodash';
+import forIn = require('lodash/forIn');
 
 @Component({
   selector: 'app-confirmation',
@@ -14,7 +14,7 @@ export class ConfirmationComponent implements OnInit {
 
   ngOnInit() {
       var cb = (data: any) => {
-          _.forIn(data, (value:any, key:string) => {
+          forIn(data, (value:any, key:string) => {
               this.payload.push(key + ': ' + value);
           });
       };

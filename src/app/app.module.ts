@@ -28,6 +28,8 @@ import { MaterialModule } from './material/material.module';
 import { HsRegistrationComponent } from './hs-registration/hs-registration.component';
 import { HsHomeComponent } from './hs-home/hs-home.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { WorkshopsComponent } from './workshops/workshops.component';
+import { WorkshopsRegistrationComponent } from './workshops-registration/workshops-registration.component';
 
 //Define the routes
 const appRoutes: Routes = [
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
     //HS Home
     {path: 'hs-home', component: HsHomeComponent, canActivate:[AuthGuardService]},
     //Confirmation page
-    {path: 'confirmation', component: ConfirmationComponent, canActivate:[AuthGuardService]}
+    {path: 'confirmation', component: ConfirmationComponent, canActivate:[AuthGuardService]},
+    //Workshops page
+    {path: 'workshops', component: WorkshopsComponent, canActivate:[AuthGuardService]}
 ];
 
 @NgModule({
@@ -59,7 +63,9 @@ const appRoutes: Routes = [
     UploadFormComponent,
     HsRegistrationComponent,
     HsHomeComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    WorkshopsComponent,
+    WorkshopsRegistrationComponent
   ],
   imports: [
     BrowserModule,

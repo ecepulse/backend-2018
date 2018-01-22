@@ -179,6 +179,16 @@ export class AuthService {
     });
   }
 
+  updateWorkshopPreferences(data) {
+    this.afAuth.authState.subscribe(authData => {
+      let uid = authData.uid;
+      const wpRef: AngularFirestoreDocument<any> = this.afs.doc(`workshopPreferences/${uid}`);
+      return wpRef.set(data).then( () => {
+          this.router.navigate(['confirmation']);
+      });
+    });
+  }
+
   getUserRegistration(cb: (data:User) => void){
     this.afAuth.authState.subscribe(authData => {
       let uid = authData.uid;

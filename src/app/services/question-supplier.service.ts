@@ -365,84 +365,138 @@ export class QuestionSupplierService {
     return questions.sort((a, b) => a.order - b.order);
   }
 
-  getHsQuestions() {
-    let questions: QuestionBase<any>[] = [
-      new TextboxQuestion({
-        key: 'first_name',
-        label: 'First name',
-        required: true,
-        order: 1
+    getHsQuestions() {
+      let questions: QuestionBase<any>[] = [
+        new TextboxQuestion({
+          key: 'first_name',
+          label: 'First name',
+          required: true,
+          order: 1
+        }),
+        new TextboxQuestion({
+          key: 'last_name',
+          label: 'Last name',
+          required: true,
+          order: 2
+        }),
+        new TextboxQuestion({
+          key: 'email',
+          label: 'Email',
+          required: true,
+          type: 'email',
+          order: 3
       }),
-      new TextboxQuestion({
-        key: 'last_name',
-        label: 'Last name',
-        required: true,
-        order: 2
+        new TextboxQuestion({
+          key: 'age',
+          label: 'Age',
+          type: 'number',
+          required: true,
+          order: 4
       }),
-      new TextboxQuestion({
-        key: 'email',
-        label: 'Email',
-        required: true,
-        type: 'email',
-        order: 3
-    }),
-      new TextboxQuestion({
-        key: 'age',
-        label: 'Age',
-        type: 'number',
-        required: true,
-        order: 4
-    }),
-      new RadioQuestion({
-        key: 'grade_level',
-        label: 'Grade level',
-        options: [
-          {key: 'fresh', value: 'Freshman'},
-          {key: 'soph', value: 'Sophomore'},
-          {key: 'jr', value: 'Junior'},
-          {key: 'sr', value: 'Senior'}
-        ],
-        required: true,
-        order: 5
-    }),
-      new TextboxQuestion({
-        key: 'high_school_name',
-        label: 'High school name',
-        required: true,
-        order: 6
-    }),
-      new RadioQuestion({
-        key: 'workshop_session_1_preference',
-        label: 'Workshop Session 1 Preference',
-        options: [
-          {key: 'ab', value: 'Arduino Basics'},
-          {key: 'aw', value: 'API Workshop'}
-        ],
-        required: true,
-        order: 7
-    }),
-      new RadioQuestion({
-        key: 'workshop_session_2_preference',
-        label: 'Workshop Session 2 Preference',
-        options: [
-        {key: 'lh', value: 'LED Hearts'},
-        {key: 'psg', value: 'Python Snake Game'}
-        ],
-        required: true,
-        order: 8
-    }),
-      new RadioQuestion({
-        key: 'workshop_session_3_preference',
-        label: 'Workshop Session 3 Preference',
-        options: [
-        {key: 'scl', value: 'Sound Controlled LED'},
-        {key: 'rpcn', value: 'Raspberry Pi Communication Network'}
-        ],
-        required: true,
-        order: 9
-    })
-    ];
-    return questions.sort((a, b) => a.order - b.order);
-  }
+        new RadioQuestion({
+          key: 'grade_level',
+          label: 'Grade level',
+          options: [
+            {key: 'fresh', value: 'Freshman'},
+            {key: 'soph', value: 'Sophomore'},
+            {key: 'jr', value: 'Junior'},
+            {key: 'sr', value: 'Senior'}
+          ],
+          required: true,
+          order: 5
+      }),
+        new TextboxQuestion({
+          key: 'high_school_name',
+          label: 'High school name',
+          required: true,
+          order: 6
+      }),
+        new RadioQuestion({
+          key: 'workshop_session_1_preference',
+          label: 'Workshop Session 1 Preference',
+          options: [
+            {key: 'ab', value: 'Arduino Basics'},
+            {key: 'aw', value: 'API Workshop'}
+          ],
+          required: true,
+          order: 7
+      }),
+        new RadioQuestion({
+          key: 'workshop_session_2_preference',
+          label: 'Workshop Session 2 Preference',
+          options: [
+          {key: 'lh', value: 'LED Hearts'},
+          {key: 'psg', value: 'Python Snake Game'}
+          ],
+          required: true,
+          order: 8
+      }),
+        new RadioQuestion({
+          key: 'workshop_session_3_preference',
+          label: 'Workshop Session 3 Preference',
+          options: [
+          {key: 'scl', value: 'Sound Controlled LED'},
+          {key: 'rpcn', value: 'Raspberry Pi Communication Network'}
+          ],
+          required: true,
+          order: 9
+      })
+      ];
+      return questions.sort((a, b) => a.order - b.order);
+    }
+
+    getRegQuestions() {
+        let questions: QuestionBase<any>[] = [
+          new RadioQuestion({
+            key: 'first_workshop_preference',
+            label: 'First Workshop Preference',
+            options: [
+              {key: 'option1', value: 'Option 1'},
+              {key: 'option2', value: 'Option 2'},
+              {key: 'option3', value: 'Option 3'},
+              {key: 'option4', value: 'Option 4'}
+            ],
+            required: true,
+            order: 1
+        }),
+          new RadioQuestion({
+            key: 'second_workshop_preference',
+            label: 'Second Workshop Preference',
+            options: [
+              {key: 'option1', value: 'Option 1'},
+              {key: 'option2', value: 'Option 2'},
+              {key: 'option3', value: 'Option 3'},
+              {key: 'option4', value: 'Option 4'}
+            ],
+            required: true,
+            order: 2
+        }),
+          new RadioQuestion({
+            key: 'third_workshop_preference',
+            label: 'Third Workshop Preference',
+            options: [
+              {key: 'option1', value: 'Option 1'},
+              {key: 'option2', value: 'Option 2'},
+              {key: 'option3', value: 'Option 3'},
+              {key: 'option4', value: 'Option 4'}
+            ],
+            required: true,
+            order: 3
+        }),
+          new RadioQuestion({
+            key: 'fourth_workshop_preference',
+            label: 'Fourth Workshop Preference',
+            options: [
+              {key: 'option1', value: 'Option 1'},
+              {key: 'option2', value: 'Option 2'},
+              {key: 'option3', value: 'Option 3'},
+              {key: 'option4', value: 'Option 4'}
+            ],
+            required: true,
+            order: 4
+        })
+        ];
+        return questions.sort((a, b) => a.order - b.order);
+    }
 
 }

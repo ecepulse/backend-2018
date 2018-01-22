@@ -1,0 +1,25 @@
+<mat-card class="registration-card">
+<div class="container">
+  <h1>Workshops Registration</h1>
+  <p>Description here.</p>
+  <div class="row">
+    <div class="col-md-6">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let question of questions" class="form-row">
+      <app-dynamic-question [question]="question" [form]="form"></app-dynamic-question>
+    </div>
+
+    <div class="form-row submit-div">
+        <button mat-raised-button color="accent" type="submit"
+                [disabled]="!form.valid || !checkPreferences()">Save</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+    </div>
+  </div>
+</div>
+</mat-card>
