@@ -15,6 +15,7 @@ export class ScannerComponent implements OnInit {
   constructor(private afs : AngularFirestore) { }
 
   outputData = null
+  errorData = null
   user = null;
 
   ngOnInit() {
@@ -23,6 +24,7 @@ export class ScannerComponent implements OnInit {
       var canvas = canvasElement.getContext("2d");
       var outputContainer = document.getElementById("output");
       this.outputData = document.getElementById("outputData");
+      this.errorData = document.getElementById("errorData");
       var thing = this;
       var lastCode = null;
 
@@ -41,6 +43,18 @@ export class ScannerComponent implements OnInit {
         video.play();
         requestAnimationFrame(tick);
       });
+      // List cameras and microphones.
+
+    navigator.mediaDevices.enumerateDevices()
+    .then(function(devices) {
+      devices.forEach(function(device) {
+        console.log(device.kind + ": " + device.label +
+                    " id = " + device.deviceId);
+      });
+    })
+    .catch(function(err) {
+      console.log(err.name + ": " + err.message);
+    });
 
       canvasElement.addEventListener('click', function() { thing.updateCheckin(lastCode) }, false);
 
@@ -75,12 +89,26 @@ export class ScannerComponent implements OnInit {
       var uid = code.data.replace(/[^a-z0-9]/gi,'');
       if(uid==""){return;}
       const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${uid}`);
-      userRef.update({checkedIn: true}).then(function() {
-              thing.outputData.innerText = "User " + uid + " has been checked in.";
-              userRef.valueChanges().subscribe(val => thing.user = val);
-      }).catch((error) => {
-              console.log(error);
-              thing.outputData.innerText = "Invalid QR code.";
+      userRef.ref.get().then(function(doc) {
+          if (doc.exists) {
+              thing.user = doc.data();
+              if(thing.user.checkedIn){
+                  thing.errorData.innerText = "USER ALREADY CHECKED IN";
+                  thing.outputData.innerText = "";
+              }
+              else {
+                  thing.errorData.innerText = "";
+                  userRef.update({checkedIn: true}).then(function() {
+                          thing.outputData.innerText = "User " + uid + " has been checked in.";
+                  }).catch((error) => {
+                          console.log(error);
+                          thing.outputData.innerText = "Invalid QR code.";
+                  });
+              }
+          }
+          else {
+              thing.errorData.innerText = "USER DOES NOT EXIST";
+          }
       });
   }
 

@@ -22,17 +22,39 @@ export class RegistrationComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] = [];
   form: FormGroup;
   payLoad = '';
+  private translator: any = {
+    email: 'email',
+    first_name: 'firstName',
+    last_name: 'lastName',
+    applicant_type: 'applicantType',
+    major: 'major',
+    grad_year: 'graduationYear',
+    shirt_size: 'shirtSize',
+    diet: 'diet',
+    gender: 'gender',
+    age: 'age',
+    github: 'github',
+    linkedin: 'linkedIn',
+    prof_int: 'professionalInterest',
+    prev_pulse: 'previousPulse',
+    event_int: 'eventInterest'
+  }
 
   constructor(private afAuth: AngularFireAuth, private qcs: QuestionControlService, private authService: AuthService, private uploadService: UploadService, private afs : AngularFirestore) { }
 
   ngOnInit() {
+    let thing = this;
     this.afAuth.authState.subscribe((authData) => {
     const user: AngularFirestoreDocument<any> = this.afs.doc(`users/${authData.uid}`);
     const data: Observable<any> = user.valueChanges();
-    for ( let question of this.questions) {
-      question.value = data[question.key];
-    }
-    this.form = this.qcs.toFormGroup(this.questions);
+    data.subscribe((dataObject) => {
+        // console.log(dataObject);
+        for ( let question of this.questions) {
+        // console.log(question.key)
+          question.value = dataObject[thing.translator[question.key]];
+        }
+        this.form = this.qcs.toFormGroup(this.questions);
+    });
     });
   }
 
@@ -62,5 +84,4 @@ export class RegistrationComponent implements OnInit {
       data.age = parseInt(this.form.value['age'].toString()) || 0;
     return this.authService.updateUserRegistration(data);
   }
-
 }
