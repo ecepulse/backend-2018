@@ -34,8 +34,9 @@ export class WorkshopsRegistrationComponent implements OnInit {
         this.form.value['second_workshop_preference'].toString(),
         this.form.value['third_workshop_preference'].toString(),
         this.form.value['fourth_workshop_preference'].toString()
-      ];
-      if(_.uniq(preferences).length == preferences.length)
+      ].filter(String);
+      let uniques = _.uniq(preferences).filter(String);
+      if(uniques.length == preferences.length)
           return true;
       else
           return false;

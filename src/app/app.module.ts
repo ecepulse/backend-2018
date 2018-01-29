@@ -30,6 +30,9 @@ import { HsHomeComponent } from './hs-home/hs-home.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { WorkshopsComponent } from './workshops/workshops.component';
 import { WorkshopsRegistrationComponent } from './workshops-registration/workshops-registration.component';
+import { StaffComponent } from './staff/staff.component';
+import { ScannerComponent } from './scanner/scanner.component';
+import { QrComponent } from './qr/qr.component';
 
 //Define the routes
 const appRoutes: Routes = [
@@ -43,12 +46,16 @@ const appRoutes: Routes = [
     {path: 'forgot-password', component: ForgotPasswordComponent},
     //Home
     {path: 'home', component: HomeComponent, canActivate:[AuthGuardService]},
-    //HS Home
-    {path: 'hs-home', component: HsHomeComponent, canActivate:[AuthGuardService]},
     //Confirmation page
     {path: 'confirmation', component: ConfirmationComponent, canActivate:[AuthGuardService]},
     //Workshops page
-    {path: 'workshops', component: WorkshopsComponent, canActivate:[AuthGuardService]}
+    {path: 'workshops', component: WorkshopsComponent, canActivate:[AuthGuardService]},
+    //Staff page
+    {path: 'staff', component: StaffComponent, canActivate:[AuthGuardService]},
+    //Scanner page
+    {path: 'scanner', component: ScannerComponent, canActivate:[AuthGuardService]},
+    //Scanner page
+    {path: 'qr', component: QrComponent, canActivate:[AuthGuardService]}
 ];
 
 @NgModule({
@@ -65,7 +72,10 @@ const appRoutes: Routes = [
     HsHomeComponent,
     ConfirmationComponent,
     WorkshopsComponent,
-    WorkshopsRegistrationComponent
+    WorkshopsRegistrationComponent,
+    StaffComponent,
+    ScannerComponent,
+    QrComponent
   ],
   imports: [
     BrowserModule,

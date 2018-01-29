@@ -7,7 +7,9 @@
     <span class="example-spacer"></span>
 
     <!-- <button *ngIf="checkUserLoggedIn()" mat-button routerLink="/home">Register</button> -->
-    <button *ngIf="checkUserLoggedIn()" mat-button routerLink="/hs-home">High School</button>
+    <button *ngIf="checkUserLoggedIn()" mat-button routerLink="/qr">QR</button>
+    <button *ngIf="checkUserLoggedIn()" mat-button routerLink="/home">General</button>
+    <button *ngIf="checkUserLoggedIn()" mat-button routerLink="/workshops">Workshops</button>
     <button *ngIf="checkUserLoggedIn()" mat-button (click)='onLogout()' type="button">Logout</button>
     <button *ngIf="!checkUserLoggedIn()" mat-button routerLink="/sign-in">My Account</button>
     <button *ngIf="!checkUserLoggedIn()" mat-button routerLink="/sign-up">Sign up</button>

@@ -1,0 +1,117 @@
+<mat-card class="registration-card">
+<div class="container">
+  <h1>Staff Portal</h1>
+  <div class="row">
+    <div class="col-md-6">
+        <button mat-raised-button color="accent" type="button" (click)="getCount()"> Get HS Applicant Count </button>
+        <p *ngIf="count">High Schooler Count: {{count}}</p>
+        <mat-card [hidden]="!count">
+            <table>
+                <tr>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Grade Level</th>
+                    <th>High School Name</th>
+                    <th>Workshop 1 Preference</th>
+                    <th>Workshop 2 Preference</th>
+                    <th>Workshop 3 Preference</th>
+                </tr>
+                <tr *ngFor="let hs of highSchoolers | async">
+                    <td>{{hs.email}}</td>
+                    <td>{{hs.firstName}}</td>
+                    <td>{{hs.lastName}}</td>
+                    <td>{{hs.age}}</td>
+                    <td>{{hs.gradeLevel}}</td>
+                    <td>{{hs.highSchoolName}}</td>
+                    <td>{{hs.workshopSession1Preference}}</td>
+                    <td>{{hs.workshopSession2Preference}}</td>
+                    <td>{{hs.workshopSession3Preference}}</td>
+                </tr>
+            </table>
+        </mat-card>
+        <button mat-raised-button color="accent" type="button" (click)="getRegistrations()"> Get Uni Applicant Count </button>
+        <p *ngIf="usersCount">University Applicant Count: {{usersCount}}</p>
+        <mat-card [hidden]="!usersCount">
+            <table>
+                <tr>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Shirt Size</th>
+                    <th>Applicant Type</th>
+                    <th>Major</th>
+                    <th>Grad Year</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Diet</th>
+                    <th>Heard about Pulse</th>
+                    <th>Professional Interest</th>
+                    <th>Event Interest</th>
+                    <th>LinkedIn</th>
+                    <th>GitHub</th>
+                </tr>
+                <tr *ngFor="let user of users | async">
+                    <td>{{user.email}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.shirtSize}}</td>
+                    <td>{{user.applicantType}}</td>
+                    <td>{{user.major}}</td>
+                    <td>{{user.graduationYear}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.diet}}</td>
+                    <td>{{user.previousPulse}}</td>
+                    <td>{{user.professionalInterest}}</td>
+                    <td>{{user.eventInterest}}</td>
+                    <td>{{user.linkedIn}}</td>
+                    <td>{{user.github}}</td>
+                </tr>
+            </table>
+        </mat-card>
+        <button mat-raised-button color="accent" type="button" (click)="getUnfinishedRegistrations()"> Get Unfinished Applicant Count </button>
+        <p *ngIf="unfinishedCount">Unfinished Applicant Count: {{unfinishedCount}}</p>
+        <mat-card [hidden]="unfinishedCount == null">
+            <table>
+                <tr>
+                    <th>Email</th>
+                    <th>UID</th>
+                </tr>
+                <tr *ngFor="let unfinished of unfinishedUsers | async">
+                    <td>{{unfinished.email}}</td>
+                    <td>{{unfinished.uid}}</td>
+                </tr>
+            </table>
+        </mat-card>
+        <button mat-raised-button color="accent" type="button" (click)="getWorkshopPreferences()"> Get Workshop Applicant Count </button>
+        <button mat-raised-button color="accent" type="button" (click)="getMicrosoftPreferences()"> Get Microsoft Applicant Count </button>
+        <button mat-raised-button color="accent" type="button" (click)="getCCCPreferences()"> Get CCC Applicant Count </button>
+        <button mat-raised-button color="accent" type="button" (click)="getTIPreferences()"> Get TI Applicant Count </button>
+        <button mat-raised-button color="accent" type="button" (click)="getQualcommPreferences()"> Get Qualcomm Applicant Count </button>
+        <p *ngIf="workshopCount">Workshop Applicant Count: {{workshopCount}}</p>
+        <mat-card [hidden]="workshopCount == null">
+            <table>
+                <tr>
+                    <th>Email</th>
+                    <th>UID</th>
+                    <th>First Workshop Preference</th>
+                    <th>Second Workshop Preference</th>
+                    <th>Third Workshop Preference</th>
+                    <th>Timestamp</th>
+                </tr>
+                <tr *ngFor="let workshop of workshops | async; let i = index">
+                    <td>{{emails[i]}}</td>
+                    <td>{{workshop.uid}}</td>
+                    <td>{{workshop.firstWorkshopPreference}}</td>
+                    <td>{{workshop.secondWorkshopPreference}}</td>
+                    <td>{{workshop.thirdWorkshopPreference}}</td>
+                    <td>{{workshop.timestamp}}</td>
+                </tr>
+            </table>
+        </mat-card>
+    </div>
+  </div>
+</div>
+</mat-card>

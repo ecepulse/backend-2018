@@ -19,6 +19,7 @@ export class ConfirmationComponent implements OnInit {
           });
       };
       this.authService.getUserRegistration(cb);
+      this.authService.getWorkshopRegistration(cb);
   }
 
 }

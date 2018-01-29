@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { User } from '../util/user';
+import { WorkshopPreferences } from '../util/workshop_preferences';
 
 @Injectable()
 export class AuthService {
@@ -205,6 +206,24 @@ export class AuthService {
     });
 
   }
+
+  getWorkshopRegistration(cb: (data:User) => void){
+    this.afAuth.authState.subscribe(authData => {
+      let uid = authData.uid;
+      const userRef: AngularFirestoreDocument<User> = this.afs.doc<WorkshopPreferences>(`workshopPreferences/${uid}`);
+      return userRef.ref.get().then(function(doc) {
+      if (doc.exists) {
+          cb(doc.data());
+      } else {
+          console.log("No such document!");
+      }
+      }).catch(function(error) {
+          console.log("Error getting document:", error);
+      });
+    });
+
+  }
+
 
   isAuthenticated() {
     return !!localStorage.getItem('isLoggedIn');

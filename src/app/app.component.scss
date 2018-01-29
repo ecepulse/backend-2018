@@ -4,3 +4,14 @@
   max-height: 56px;
   max-width: 100%;
 }
+
+.mat-button {
+    @media only screen and (max-width: 768px){
+        font-size: 0.75em;
+        min-width: 70px;
+    }
+    @media only screen and (max-width: 420px){
+        font-size: 0.6em;
+        min-width: 60px;
+    }
+}

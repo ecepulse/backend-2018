@@ -451,10 +451,10 @@ export class QuestionSupplierService {
             key: 'first_workshop_preference',
             label: 'First Workshop Preference',
             options: [
-              {key: 'option1', value: 'Option 1'},
-              {key: 'option2', value: 'Option 2'},
-              {key: 'option3', value: 'Option 3'},
-              {key: 'option4', value: 'Option 4'}
+              {key: 'microsoft', value: 'Microsoft Cognitive Services'},
+              {key: 'ccc', value: 'Building Deep Learning AI Networks with Keras'},
+              {key: 'qualcomm', value: 'Make Your Own Shazam'},
+              {key: 'ti', value: 'Getting Started with TI Launchpad™'}
             ],
             required: true,
             order: 1
@@ -463,36 +463,36 @@ export class QuestionSupplierService {
             key: 'second_workshop_preference',
             label: 'Second Workshop Preference',
             options: [
-              {key: 'option1', value: 'Option 1'},
-              {key: 'option2', value: 'Option 2'},
-              {key: 'option3', value: 'Option 3'},
-              {key: 'option4', value: 'Option 4'}
+              {key: 'microsoft', value: 'Microsoft Cognitive Services'},
+              {key: 'ccc', value: 'Building Deep Learning AI Networks with Keras'},
+              {key: 'qualcomm', value: 'Make Your Own Shazam'},
+              {key: 'ti', value: 'Getting Started with TI Launchpad™'}
             ],
-            required: true,
+            required: false,
             order: 2
         }),
           new RadioQuestion({
             key: 'third_workshop_preference',
             label: 'Third Workshop Preference',
             options: [
-              {key: 'option1', value: 'Option 1'},
-              {key: 'option2', value: 'Option 2'},
-              {key: 'option3', value: 'Option 3'},
-              {key: 'option4', value: 'Option 4'}
+              {key: 'microsoft', value: 'Microsoft Cognitive Services'},
+              {key: 'ccc', value: 'Building Deep Learning AI Networks with Keras'},
+              {key: 'qualcomm', value: 'Make Your Own Shazam'},
+              {key: 'ti', value: 'Getting Started with TI Launchpad™'}
             ],
-            required: true,
+            required: false,
             order: 3
         }),
           new RadioQuestion({
             key: 'fourth_workshop_preference',
             label: 'Fourth Workshop Preference',
             options: [
-              {key: 'option1', value: 'Option 1'},
-              {key: 'option2', value: 'Option 2'},
-              {key: 'option3', value: 'Option 3'},
-              {key: 'option4', value: 'Option 4'}
+              {key: 'microsoft', value: 'Microsoft Cognitive Services'},
+              {key: 'ccc', value: 'Building Deep Learning AI Networks with Keras'},
+              {key: 'qualcomm', value: 'Make Your Own Shazam'},
+              {key: 'ti', value: 'Getting Started with TI Launchpad™'}
             ],
-            required: true,
+            required: false,
             order: 4
         })
         ];
