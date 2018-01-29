@@ -8,6 +8,9 @@ import { AuthService } from '../services/auth.service';
 import { UploadService } from '../services/upload.service';
 
 import { User } from '../util/user';
+import {AngularFirestoreDocument, AngularFirestore} from "angularfire2/firestore";
+import { AngularFireAuth } from 'angularfire2/auth';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-registration',
@@ -20,10 +23,17 @@ export class RegistrationComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
-  constructor(private qcs: QuestionControlService, private authService: AuthService, private uploadService: UploadService) { }
+  constructor(private afAuth: AngularFireAuth, private qcs: QuestionControlService, private authService: AuthService, private uploadService: UploadService, private afs : AngularFirestore) { }
 
   ngOnInit() {
+    this.afAuth.authState.subscribe((authData) => {
+    const user: AngularFirestoreDocument<any> = this.afs.doc(`users/${authData.uid}`);
+    const data: Observable<any> = user.valueChanges();
+    for ( let question of this.questions) {
+      question.value = data[question.key];
+    }
     this.form = this.qcs.toFormGroup(this.questions);
+    });
   }
 
   fileUploaded() {
